@@ -1,0 +1,11 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.photo {
+  height: 300px;
+  width: 500px;
+}
+
+html,body {background: "#28527a"}
