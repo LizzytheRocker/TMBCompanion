@@ -1,5 +1,7 @@
 import React from 'react';
 import Character from './Character.js';
+import CharSelect from './CharSelect'
+import './CharSelect.css'
 
 const App = () => {
     var test = new Character;
@@ -20,6 +22,7 @@ const App = () => {
     //test.load("test");
 
     return (
+        <div className='App'>
         <html>
             <body>
                 <h1> Test Character </h1>
@@ -49,8 +52,10 @@ const App = () => {
                     <li> Locked Slots: {test.locked_slots.toString()} </li>
                     <li> Scars: {test.scars.toString()} </li>
                 </ul>
+                <CharSelect />
             </body>
         </html>
+        </div>
     );
 }
 
