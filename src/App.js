@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import logo from "./TMB logo.png";
 import Character from './Character.js';
-import CharSelect from './CharSelect'
+import CharSelectButton from './CharSelectButton'
 import './CharSelect.css'
 
 function buttonClick({ navigation }) {
@@ -79,18 +79,18 @@ function NewScreen({ navigation }) {
 
 
 const App = () => {
-    var test = new Character;
+    // var test = new Character;
 
-    test.name = "Test";
-    test.stats_base = [4, 2, 3, 3];
-    test.stats_dice = [0, 2, 1, 0];
-    test.dice_acq = [1, 4];
-    test.innate = true;
-    test.curr_hp = 2;
-    test.loot = ["Big gun"];
-    test.player_notes = "The bad guy is bad";
-    test.locked_slots = ["2 bombs"];
-    test.scars = ["None"];
+    // test.name = "Test";
+    // test.stats_base = [4, 2, 3, 3];
+    // test.stats_dice = [0, 2, 1, 0];
+    // test.dice_acq = [1, 4];
+    // test.innate = true;
+    // test.curr_hp = 2;
+    // test.loot = ["Big gun"];
+    // test.player_notes = "The bad guy is bad";
+    // test.locked_slots = ["2 bombs"];
+    // test.scars = ["None"];
 
     //Will not work in a browser
     //test.save("test");
@@ -116,7 +116,8 @@ const App = () => {
             </Stack.Navigator>
         }
     </NavigationContainer>
-    <html>
+    <CharSelectButton />
+    {/* <html>
         <body>
             <h1> Test Character </h1>
             <ul>
@@ -147,7 +148,7 @@ const App = () => {
             </ul>
             <CharSelect />
         </body>
-    </html>
+    </html> */}
 	</>
     );
 }
