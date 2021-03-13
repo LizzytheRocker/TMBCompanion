@@ -79,22 +79,22 @@ function NewScreen({ navigation }) {
 
 
 const App = () => {
-    // var test = new Character;
+    /* Example test character
+    var test = new Character;
 
-    // test.name = "Test";
-    // test.stats_base = [4, 2, 3, 3];
-    // test.stats_dice = [0, 2, 1, 0];
-    // test.dice_acq = [1, 4];
-    // test.innate = true;
-    // test.curr_hp = 2;
-    // test.loot = ["Big gun"];
-    // test.player_notes = "The bad guy is bad";
-    // test.locked_slots = ["2 bombs"];
-    // test.scars = ["None"];
+    test.name = "Test";
+    test.stats_base = [4, 2, 3, 3];
+    test.stats_dice = [0, 2, 1, 0];
+    test.dice_acq = [1, 4];
+    test.innate = true;
+    test.curr_hp = 2;
+    test.loot = ["Big gun"];
+    test.player_notes = "The bad guy is bad";
+    test.locked_slots = ["2 bombs"];
+    test.scars = ["None"];
 
-    //Will not work in a browser
-    //test.save("test");
-    //test.load("test");
+    var temp = JSON.stringify(test);
+    test = Object.assign(test, temp);*/
 
     return (
 	<>

@@ -42,34 +42,6 @@ class Character {
         this.#scars = scars;
     }
 
-    //TODO: make this compatible with browsers
-    load(file) {
-        if (typeof (file) != "string") {
-            throw new TypeError("Expected string, type provided was " + typeof (file));
-        }
-
-        const fs = require('fs');
-
-        let data = fs.readFileSync(file + '.json');
-
-        let object = JSON.parse(data);
-
-        return new Character(object.name, object.stats_base, object.stats_dice, object.dice_acq, object.innate, object.curr_hp, object.loot, object.player_notes, object.locked_slots, object.scars);
-    }
-
-    //TODO: make this compatible with browsers
-    save(file) {
-        if (typeof (file) != "string") {
-            throw new TypeError("Expected string, type provided was " + typeof (file));
-        }
-
-        const fs = require('fs');
-
-        let data = JSON.stringify(this, null, 2);
-
-        fs.writeFileSync(file + '.json', data);
-    }
-
     get name() {
         return this.#name;
     }
