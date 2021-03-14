@@ -10,6 +10,7 @@ class CharSelect extends React.Component {
 	constructor() {
 		super();
 		this.state = { char: new Character }
+		this.state.char.name = 'test'
 	}
 
 	submitChar() {
@@ -34,7 +35,7 @@ class CharSelect extends React.Component {
 		this.state.char.locked_slots = locked;
 		var scars = document.getElementById('CharSelectScars').nodeValue;
 		this.state.char.scars = scars;
-		console.log(JSON.stringify(this.state.char))
+		console.log(JSON.stringify(this.state.char));
 	}
 
 	render () {
@@ -112,6 +113,15 @@ class CharSelect extends React.Component {
 						value='Submit'
 						onClick='submitChar()'
 					/>
+					<button
+						type="button"
+						href={`data:text/json;charset=utf-8,${encodeURIComponent(
+						JSON.stringify(this.state.char)
+						)}`}
+						download="character.json"
+						>
+						{`Download Json`}
+					</button>
 					{/* <script type="text/javascript">
 						function submitChar() {
 							var name = document.getElementByID('CharSelectName').value;
