@@ -113,7 +113,7 @@ class CharSelect extends React.Component {
 						value='Submit'
 						onClick='submitChar()'
 					/>
-					<button
+					<a
 						type="button"
 						href={`data:text/json;charset=utf-8,${encodeURIComponent(
 						JSON.stringify(this.state.char)
@@ -121,7 +121,7 @@ class CharSelect extends React.Component {
 						download="character.json"
 						>
 						{`Download Json`}
-					</button>
+					</a>
 					{/* <script type="text/javascript">
 						function submitChar() {
 							var name = document.getElementByID('CharSelectName').value;
