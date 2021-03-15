@@ -19,20 +19,21 @@ class CharSelect extends React.Component {
 		var basedex = document.getElementById('CharSelectBaseDEX').value;
 		var baseatk = document.getElementById('CharSelectBaseATK').value;
 		var basedef = document.getElementById('CharSelectBaseDEF').value;
-		this.state.char.stats_base = [Number(basehp), Number(basedex), Number(baseatk), Number(basedef)];
+		this.state.char.stats_base = { hp: Number(basehp), dex: Number(basedex), atk: Number(baseatk), df: Number(basedef) };
 		var dicehp = document.getElementById('CharSelectDiceHP').value;
 		var dicedex = document.getElementById('CharSelectDiceDEX').value;
 		var diceatk = document.getElementById('CharSelectDiceATK').value;
 		var dicedef = document.getElementById('CharSelectDiceDEF').value;
-		this.state.char.stats_dice = [Number(dicehp), Number(dicedex), Number(diceatk), Number(dicedef)];
-		this.state.char.dice_acq = document.getElementById('CharSelectDiceAcq').value.split(',').map(Number);
+		this.state.char.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
+		this.state.char.dice_acq = document.getElementById('CharSelectDiceAcq').value;
 		this.state.char.innate = Boolean(document.getElementById('CharSelectInnate').value);
 		this.state.char.curr_hp = Number(document.getElementById('CharSelectCurrHP').value);
-		this.state.char.loot = document.getElementById('CharSelectLoot').value.split(',').map(String);
+		this.state.char.loot = document.getElementById('CharSelectLoot').value;
 		this.state.char.player_notes = document.getElementById('CharSelectNotes').value;
-		this.state.char.locked_slots = document.getElementById('CharSelectLockedSlots').value.split(',').map(String);
-		this.state.char.scars = document.getElementById('CharSelectScars').value.split(',').map(String);
+		this.state.char.locked_slots = document.getElementById('CharSelectLockedSlots').value;
+		this.state.char.scars = document.getElementById('CharSelectScars').value;
 		document.getElementById("Download").href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.state.char))}`;
+		document.getElementById("Download").download = this.state.char.name + '.json';
 	}
 
 	render() {
@@ -87,13 +88,11 @@ class CharSelect extends React.Component {
 						type='number'
 					/>
 					<h2>Skill Dice</h2>
-					<p>Unique numbers (corresponding to skill number) separated by commas</p>
 					<input
 						id='CharSelectDiceAcq'
 						type='text'
 					/>
-					<h2>Innate</h2>
-					<p>Check if innate + 1 has been reached</p>
+					<h2>Innate +1</h2>
 					<input
 						id='CharSelectInnate'
 						type='checkbox'
@@ -104,7 +103,6 @@ class CharSelect extends React.Component {
 						type='number'
 					/>
 					<h2>Loot</h2>
-					<p>List of loot separated by commas</p>
 					<input
 						id='CharSelectLoot'
 						type='text'
