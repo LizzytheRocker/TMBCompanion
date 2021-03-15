@@ -13,32 +13,29 @@ class CharSelect extends React.Component {
 		this.state.char.name = 'test'
 	}
 
-	submitChar() {
-		var name = document.getElementByID('CharSelectName').nodeValue;
-		this.state.char.name = name;
-		var hp = document.getElementById('CharSelectBaseHP').nodeValue;
-		var dex = document.getElementById('CharSelectBaseDEX').nodeValue;
-		var atk = document.getElementById('CharSelectBaseATK').nodeValue;
-		var def = document.getElementById('CharSelectBaseDEF').nodeValue;
-		this.state.char.stats_base = [hp, dex, atk, def];
-		var dice_acq = document.getElementById('CharSelectDiceAcq').nodeValue;
-		this.state.char.dice_acq = dice_acq;
-		var innate = document.getElementById('CharSelectInnate').nodeValue;
-		this.state.char.innate = innate;
-		var curr_hp = document.getElementById('CharSelectCurrHP').nodeValue;
-		this.state.char.curr_hp = curr_hp;
-		var loot = document.getElementById('CharSelectLoot').nodeValue;
-		this.state.char.loot = loot;
-		var notes = document.getElementById('CharSelectNotes').nodeValue;
-		this.state.char.player_notes = notes;
-		var locked = document.getElementById('CharSelectLockedSlots').nodeValue;
-		this.state.char.locked_slots = locked;
-		var scars = document.getElementById('CharSelectScars').nodeValue;
-		this.state.char.scars = scars;
-		console.log(JSON.stringify(this.state.char));
+	async submitChar() {
+		this.state.char.name = document.getElementById('CharSelectName').value;
+		var basehp = document.getElementById('CharSelectBaseHP').value;
+		var basedex = document.getElementById('CharSelectBaseDEX').value;
+		var baseatk = document.getElementById('CharSelectBaseATK').value;
+		var basedef = document.getElementById('CharSelectBaseDEF').value;
+		this.state.char.stats_base = [Number(basehp), Number(basedex), Number(baseatk), Number(basedef)];
+		var dicehp = document.getElementById('CharSelectDiceHP').value;
+		var dicedex = document.getElementById('CharSelectDiceDEX').value;
+		var diceatk = document.getElementById('CharSelectDiceATK').value;
+		var dicedef = document.getElementById('CharSelectDiceDEF').value;
+		this.state.char.stats_dice = [Number(dicehp), Number(dicedex), Number(diceatk), Number(dicedef)];
+		this.state.char.dice_acq = document.getElementById('CharSelectDiceAcq').value.split(',').map(Number);
+		this.state.char.innate = Boolean(document.getElementById('CharSelectInnate').value);
+		this.state.char.curr_hp = Number(document.getElementById('CharSelectCurrHP').value);
+		this.state.char.loot = document.getElementById('CharSelectLoot').value.split(',').map(String);
+		this.state.char.player_notes = document.getElementById('CharSelectNotes').value;
+		this.state.char.locked_slots = document.getElementById('CharSelectLockedSlots').value.split(',').map(String);
+		this.state.char.scars = document.getElementById('CharSelectScars').value.split(',').map(String);
+		document.getElementById("Download").href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.state.char))}`;
 	}
 
-	render () {
+	render() {
 		return (
 			<div className='CharSelect'>
 				<form>
@@ -66,6 +63,27 @@ class CharSelect extends React.Component {
 					<p>DEF</p>
 					<input
 						id='CharSelectBaseDEF'
+						type='number'
+					/>
+					<h2>Stat Increases:</h2>
+					<p>HP</p>
+					<input
+						id='CharSelectDiceHP'
+						type='number'
+					/>
+					<p>DEX</p>
+					<input
+						id='CharSelectDiceDEX'
+						type='number'
+					/>
+					<p>ATK</p>
+					<input
+						id='CharSelectDiceATK'
+						type='number'
+					/>
+					<p>DEF</p>
+					<input
+						id='CharSelectDiceDEF'
 						type='number'
 					/>
 					<h2>Skill Dice</h2>
@@ -107,27 +125,18 @@ class CharSelect extends React.Component {
 						id='CharSelectScars'
 						type='text'
 					/>
-					<input
-						id='CharSelectSubmit'
-						type='submit'
-						value='Submit'
-						onClick='submitChar()'
-					/>
+					<br /><br />
 					<a
 						type="button"
+						onClick={() => this.submitChar()}
 						href={`data:text/json;charset=utf-8,${encodeURIComponent(
 						JSON.stringify(this.state.char)
 						)}`}
 						download="character.json"
+						id='Download'
 						>
 						{`Download Json`}
 					</a>
-					{/* <script type="text/javascript">
-						function submitChar() {
-							var name = document.getElementByID('CharSelectName').value;
-							this.state.char.#name = name;
-						}
-					</script> */}
 				</form>
 			</div>
 		)

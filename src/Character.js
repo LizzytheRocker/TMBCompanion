@@ -42,6 +42,21 @@ class Character {
         this.#scars = scars;
     }
 
+    toJSON() {
+        return {
+            name: this.#name,
+            stats_base: this.#stats_base,
+            stats_dice: this.#stats_dice,
+            dice_acq: this.#dice_acq,
+            innate: this.#innate,
+            curr_hp: this.#curr_hp,
+            loot: this.#loot,
+            player_notes: this.#player_notes,
+            locked_slots: this.#locked_slots,
+            scars: this.#scars
+        }
+    }
+
     get name() {
         return this.#name;
     }
