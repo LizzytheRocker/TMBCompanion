@@ -2,13 +2,13 @@ class Character {
     //The name of the character (this should be a string)
     #name;
 
-    //The base stats of the character (this should be an object containing four integers with values of at least one)
+    //The base stats of the character (this should be an object containing four integers named hp, dex, atk, and df, with values of at least one)
     #stats_base;
 
-    //The dice that have been added to the character's base stats (this should be an object containing four integers with values of at least zero)
+    //The dice that have been added to the character's base stats (this should be an object containing four integers named hp, dex, atk, and df, with values of at least zero)
     #stats_dice;
 
-    //The skill dice that the character has acquired (this should be an object containing integers with unique values between 1 and 16)
+    //The skill dice that the character has acquired (this should be a string)
     #dice_acq;
 
     //Whether or not the character has awakened their innate +1 (this should be a boolean)
@@ -17,19 +17,19 @@ class Character {
     //The current hp of the character (this should be an integer with a value of at least zero)
     #curr_hp;
 
-    //The loot that the character has aqcuired (this should be an object containing strings)
+    //The loot that the character has aqcuired (this should be a string)
     #loot;
 
     //The notes the player has taken (this should be a string)
     #player_notes;
 
-    //The dice the character has in their locked slots (this should be an object containing strings)
+    //The dice the character has in their locked slots (this should be a string)
     #locked_slots;
 
-    //The scars the character has (this should be an object containing strings)
+    //The scars the character has (this should be a string)
     #scars;
 
-    constructor(name = "", stats_base = { hp: 1, dex: 1, atk: 1, df: 1 }, stats_dice = { hp: 0, dex: 0, atk: 0, df: 0 }, dice_acq = [], innate = false, curr_hp = 0, loot = [], player_notes = "", locked_slots = [], scars = []) {
+    constructor(name = "", stats_base = { hp: 1, dex: 1, atk: 1, df: 1 }, stats_dice = { hp: 0, dex: 0, atk: 0, df: 0 }, dice_acq = "", innate = false, curr_hp = 0, loot = "", player_notes = "", locked_slots = "", scars = "") {
         this.#name = name;
         this.#stats_base = stats_base;
         this.#stats_dice = stats_dice;
@@ -78,26 +78,55 @@ class Character {
             throw new TypeError("Expected object, type provided was " + typeof (stats_base));
         }
 
-        if (stats_base.length != 4) {
-            throw new RangeError("Length of object must be 4, length of array was " + String(stats_base.length));
+        if (typeof (stats_base.hp) != "number") {
+            throw new TypeError("Expected object containing numbers, type of element hp was " + typeof (stats_base.hp));
         }
 
-        let i = 0;
-        for (; i < stats_base.length; i++) {
-            if (typeof (stats_base[i]) != "number") {
-                throw new TypeError("Expected object containing numbers, type of element " + String(i) + " was " + typeof (stats_base[i]));
-            }
-
-            if (!Number.isInteger(stats_base[i])) {
-                throw new RangeError("Values must be integers, value of element " + String(i) + " was " + String(stats_base[i]));
-            }
-
-            if (stats_base[i] < 1) {
-                throw new RangeError("Values must be at least 1, value of element " + String(i) + " was " + String(stats_base[i]));
-            }
+        if (!Number.isInteger(stats_base.hp)) {
+            throw new RangeError("Values must be integers, value of element hp was " + String(stats_base.hp));
         }
 
-        this.#stats_base = { hp: stats_base[0], dex: stats_base[1], atk: stats_base[2], df: stats_base[3] };
+        if (stats_base.hp < 0) {
+            throw new RangeError("Values must be at least 0, value of element hp was " + String(stats_base.hp));
+        }
+
+        if (typeof (stats_base.dex) != "number") {
+            throw new TypeError("Expected object containing numbers, type of element dex was " + typeof (stats_base.dex));
+        }
+
+        if (!Number.isInteger(stats_base.dex)) {
+            throw new RangeError("Values must be integers, value of element dex was " + String(stats_base.dex));
+        }
+
+        if (stats_base.dex < 0) {
+            throw new RangeError("Values must be at least 0, value of element dex was " + String(stats_base.dex));
+        }
+
+        if (typeof (stats_base.atk) != "number") {
+            throw new TypeError("Expected object containing numbers, type of element atk was " + typeof (stats_base.atk));
+        }
+
+        if (!Number.isInteger(stats_base.atk)) {
+            throw new RangeError("Values must be integers, value of element atk was " + String(stats_base.atk));
+        }
+
+        if (stats_base.atk < 0) {
+            throw new RangeError("Values must be at least 0, value of element atk was " + String(stats_base.atk));
+        }
+
+        if (typeof (stats_base.df) != "number") {
+            throw new TypeError("Expected object containing numbers, type of element df was " + typeof (stats_base.df));
+        }
+
+        if (!Number.isInteger(stats_base.df)) {
+            throw new RangeError("Values must be integers, value of element df was " + String(stats_base.df));
+        }
+
+        if (stats_base.df < 0) {
+            throw new RangeError("Values must be at least 0, value of element df was " + String(stats_base.df));
+        }
+
+        this.#stats_base = { hp: stats_base.hp, dex: stats_base.dex, atk: stats_base.atk, df: stats_base.df };
     }
 
     get stats_dice() {
@@ -109,26 +138,55 @@ class Character {
             throw new TypeError("Expected object, type provided was " + typeof (stats_dice));
         }
 
-        if (stats_dice.length != 4) {
-            throw new RangeError("Length of object must be 4, length of array was " + String(stats_dice.length));
+        if (typeof (stats_dice.hp) != "number") {
+            throw new TypeError("Expected object containing numbers, type of element hp was " + typeof (stats_dice.hp));
         }
 
-        let i = 0;
-        for (; i < stats_dice.length; i++) {
-            if (typeof (stats_dice[i]) != "number") {
-                throw new TypeError("Expected object containing numbers, type of element " + String(i) + " was " + typeof (stats_dice[i]));
-            }
-
-            if (!Number.isInteger(stats_dice[i])) {
-                throw new RangeError("Values must be integers, value of element " + String(i) + " was " + String(stats_dice[i]));
-            }
-
-            if (stats_dice[i] < 0) {
-                throw new RangeError("Values must be at least 0, value of element " + String(i) + " was " + String(stats_dice[i]));
-            }
+        if (!Number.isInteger(stats_dice.hp)) {
+            throw new RangeError("Values must be integers, value of element hp was " + String(stats_dice.hp));
         }
 
-        this.#stats_dice = { hp: stats_dice[0], dex: stats_dice[1], atk: stats_dice[2], df: stats_dice[3] };
+        if (stats_dice.hp < 0) {
+            throw new RangeError("Values must be at least 0, value of element hp was " + String(stats_dice.hp));
+        }
+
+        if (typeof (stats_dice.dex) != "number") {
+            throw new TypeError("Expected object containing numbers, type of element dex was " + typeof (stats_dice.dex));
+        }
+
+        if (!Number.isInteger(stats_dice.dex)) {
+            throw new RangeError("Values must be integers, value of element dex was " + String(stats_dice.dex));
+        }
+
+        if (stats_dice.dex < 0) {
+            throw new RangeError("Values must be at least 0, value of element dex was " + String(stats_dice.dex));
+        }
+
+        if (typeof (stats_dice.atk) != "number") {
+            throw new TypeError("Expected object containing numbers, type of element atk was " + typeof (stats_dice.atk));
+        }
+
+        if (!Number.isInteger(stats_dice.atk)) {
+            throw new RangeError("Values must be integers, value of element atk was " + String(stats_dice.atk));
+        }
+
+        if (stats_dice.atk < 0) {
+            throw new RangeError("Values must be at least 0, value of element atk was " + String(stats_dice.atk));
+        }
+
+        if (typeof (stats_dice.df) != "number") {
+            throw new TypeError("Expected object containing numbers, type of element df was " + typeof (stats_dice.df));
+        }
+
+        if (!Number.isInteger(stats_dice.df)) {
+            throw new RangeError("Values must be integers, value of element df was " + String(stats_dice.df));
+        }
+
+        if (stats_dice.df < 0) {
+            throw new RangeError("Values must be at least 0, value of element df was " + String(stats_dice.df));
+        }
+
+        this.#stats_dice = { hp: stats_dice.hp, dex: stats_dice.dex, atk: stats_dice.atk, df: stats_dice.df };
     }
 
     get dice_acq() {
@@ -136,31 +194,8 @@ class Character {
     }
 
     set dice_acq(dice_acq) {
-        if (typeof (dice_acq) != "object") {
-            throw new TypeError("Expected array, type provided was " + typeof (dice_acq));
-        }
-
-        if (dice_acq.length > 16) {
-            throw new RangeError("Length of object must be at most 16, length of array was " + String(dice_acq.length));
-        }
-
-        let i = 0;
-        for (; i < dice_acq.length; i++) {
-            if (typeof (dice_acq[i]) != "number") {
-                throw new TypeError("Expected object containing numbers, type of element " + String(i) + " was " + typeof (dice_acq[i]));
-            }
-
-            if (!Number.isInteger(dice_acq[i])) {
-                throw new RangeError("Values must be integers, value of element " + String(i) + " was " + String(dice_acq[i]));
-            }
-
-            if (dice_acq[i] < 1 || dice_acq[i] > 16) {
-                throw new RangeError("Values must be between 1 and 16, value of element " + String(i) + " was " + String(dice_acq[i]));
-            }
-
-            if (new Set(dice_acq).size != dice_acq.length) {
-                throw new RangeError("Values must be unique");
-            }
+        if (typeof (dice_acq) != "string") {
+            throw new TypeError("Expected string, type provided was " + typeof (dice_acq));
         }
 
         this.#dice_acq = dice_acq;
@@ -203,15 +238,8 @@ class Character {
     }
 
     set loot(loot) {
-        if (typeof (loot) != "object") {
-            throw new TypeError("Expected object, type provided was " + typeof (loot));
-        }
-
-        let i = 0;
-        for (; i < loot.length; i++) {
-            if (typeof (loot[i]) != "string") {
-                throw new TypeError("Expected object containing strings, type of element " + String(i) + " was " + typeof (loot[i]));
-            }
+        if (typeof (loot) != "string") {
+            throw new TypeError("Expected string, type provided was " + typeof (loot));
         }
 
         this.#loot = loot;
@@ -234,15 +262,8 @@ class Character {
     }
 
     set locked_slots(locked_slots) {
-        if (typeof (locked_slots) != "object") {
-            throw new TypeError("Expected object, type provided was " + typeof (locked_slots));
-        }
-
-        let i = 0;
-        for (; i < locked_slots.length; i++) {
-            if (typeof (locked_slots[i]) != "string") {
-                throw new TypeError("Expected object containing strings, type of element " + String(i) + " was " + typeof (locked_slots[i]));
-            }
+        if (typeof (locked_slots) != "string") {
+            throw new TypeError("Expected string, type provided was " + typeof (locked_slots));
         }
 
         this.#locked_slots = locked_slots;
@@ -253,15 +274,8 @@ class Character {
     }
 
     set scars(scars) {
-        if (typeof (scars) != "object") {
-            throw new TypeError("Expected object, type provided was " + typeof (scars));
-        }
-
-        let i = 0;
-        for (; i < scars.length; i++) {
-            if (typeof (scars[i]) != "string") {
-                throw new TypeError("Expected object containing strings, type of element " + String(i) + " was " + typeof (scars[i]));
-            }
+        if (typeof (scars) != "string") {
+            throw new TypeError("Expected string, type provided was " + typeof (scars));
         }
 
         this.#scars = scars;

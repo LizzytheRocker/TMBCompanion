@@ -80,21 +80,21 @@ function NewScreen({ navigation }) {
 
 const App = () => {
     /* Example test character
-    var test = new Character;
+    var temp = new Character;
 
-    test.name = "Test";
-    test.stats_base = [4, 2, 3, 3];
-    test.stats_dice = [0, 2, 1, 0];
-    test.dice_acq = [1, 4];
-    test.innate = true;
-    test.curr_hp = 2;
-    test.loot = ["Big gun"];
-    test.player_notes = "The bad guy is bad";
-    test.locked_slots = ["2 bombs"];
-    test.scars = ["None"];
+    temp.name = "Test";
+    temp.stats_base = { hp: 4, dex: 2, atk: 3, df: 3 };
+    temp.stats_dice = { hp: 0, dex: 2, atk: 1, df: 0};
+    temp.dice_acq = "1, 4";
+    temp.innate = true;
+    temp.curr_hp = 2;
+    temp.loot = "Big gun";
+    temp.player_notes = "The bad guy is bad";
+    temp.locked_slots = "2 bombs";
+    temp.scars = "None";
 
-    var temp = JSON.stringify(test);
-    test = Object.assign(test, temp);*/
+    var json = JSON.stringify(temp);
+    var test = Object.assign(new Character, JSON.parse(json));*/
 
     return (
 	<>
@@ -146,7 +146,6 @@ const App = () => {
                 <li> Locked Slots: {test.locked_slots.toString()} </li>
                 <li> Scars: {test.scars.toString()} </li>
             </ul>
-            <CharSelect />
         </body>
     </html> */}
 	</>
