@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import logo from "./TMB logo.png";
 import Character from './Character.js';
 import CharSelectButton from './CharSelectButton'
+import Game from './Game.js';
 import './CharSelect.css'
 
 function buttonClick({ navigation }) {
@@ -79,22 +80,20 @@ function NewScreen({ navigation }) {
 
 
 const App = () => {
-    /* Example test character
-    var temp = new Character;
-
-    temp.name = "Test";
-    temp.stats_base = { hp: 4, dex: 2, atk: 3, df: 3 };
-    temp.stats_dice = { hp: 0, dex: 2, atk: 1, df: 0};
-    temp.dice_acq = "1, 4";
-    temp.innate = true;
-    temp.curr_hp = 2;
-    temp.loot = "Big gun";
-    temp.player_notes = "The bad guy is bad";
-    temp.locked_slots = "2 bombs";
-    temp.scars = "None";
+    /* Example test game
+    var character = new Character("Test", { hp: 4, dex: 2, atk: 3, df: 3 }, { hp: 0, dex: 2, atk: 1, df: 0 }, "1, 4", true, 2, "Big gun", "The bad guy is bad", "2 bombs", "None");
+    var temp = new Game();
+    temp.save_name = "Test Game";
+    temp.tyrant = "Bad Guy";
+    temp.day_count = 2;
+    temp.progress_points = 3;
+    temp.encounters_completed = "The first one";
+    temp.encounters_remaining = "All of the other ones";
+    temp.loot_used = "Big bomb";
+    temp.addCharacter(character);
 
     var json = JSON.stringify(temp);
-    var test = Object.assign(new Character, JSON.parse(json));*/
+    var game = Object.assign(new Game, JSON.parse(json));*/
 
     return (
 	<>
@@ -119,32 +118,42 @@ const App = () => {
     <CharSelectButton />
     {/* <html>
         <body>
-            <h1> Test Character </h1>
+            <h1> Test Game </h1>
             <ul>
-                <li> Name: {test.name} </li>
-                <li> Base stats:
-                    <ul>
-                        <li> HP: {test.stats_base.hp} </li>
-                        <li> Dexterity: {test.stats_base.dex} </li>
-                        <li> Attack: {test.stats_base.atk} </li>
-                        <li> Defense: {test.stats_base.df} </li>
-                    </ul>
-                </li>
-                <li> Dice stats:
-                    <ul>
-                        <li> HP: {test.stats_dice.hp} </li>
-                        <li> Dexterity: {test.stats_dice.dex} </li>
-                        <li> Attack: {test.stats_dice.atk} </li>
-                        <li> Defense: {test.stats_dice.df} </li>
-                    </ul>
-                </li>
-                <li> Dice acquired: {test.dice_acq.toString()} </li>
-                <li> Innate +1: {test.innate.toString()} </li>
-                <li> Current HP: {test.curr_hp} </li>
-                <li> Loot: {test.loot.toString()} </li>
-                <li> Notes: {test.player_notes} </li>
-                <li> Locked Slots: {test.locked_slots.toString()} </li>
-                <li> Scars: {test.scars.toString()} </li>
+                <li> Save name: {game.save_name} </li>
+                <li> Tyrant: {game.tyrant} </li>
+                <li> Day count: {game.day_count} </li>
+                <li> Progress points: {game.progress_points} </li>
+                <li> Encounters completed: {game.encounters_completed} </li>
+                <li> Encounters remaining: {game.encounters_remaining} </li>
+                <li> Loot used: {game.loot_used} </li>
+                <li> Characters: {game.characters.length} </li>
+                <ul>
+                            <li> Name: {game.characters[0].name} </li>
+                    <li> Base stats:
+                        <ul>
+                            <li> HP: {game.characters[0].stats_base.hp} </li>
+                            <li> Dexterity: {game.characters[0].stats_base.dex} </li>
+                            <li> Attack: {game.characters[0].stats_base.atk} </li>
+                            <li> Defense: {game.characters[0].stats_base.df} </li>
+                        </ul>
+                    </li>
+                    <li> Dice stats:
+                        <ul>
+                            <li> HP: {game.characters[0].stats_dice.hp} </li>
+                            <li> Dexterity: {game.characters[0].stats_dice.dex} </li>
+                            <li> Attack: {game.characters[0].stats_dice.atk} </li>
+                            <li> Defense: {game.characters[0].stats_dice.df} </li>
+                        </ul>
+                    </li>
+                    <li> Dice acquired: {game.characters[0].dice_acq.toString()} </li>
+                    <li> Innate +1: {game.characters[0].innate.toString()} </li>
+                    <li> Current HP: {game.characters[0].curr_hp} </li>
+                    <li> Loot: {game.characters[0].loot.toString()} </li>
+                    <li> Notes: {game.characters[0].player_notes} </li>
+                    <li> Locked Slots: {game.characters[0].locked_slots.toString()} </li>
+                    <li> Scars: {game.characters[0].scars.toString()} </li>
+                </ul>
             </ul>
         </body>
     </html> */}
