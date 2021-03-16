@@ -36,6 +36,41 @@ class CharSelect extends React.Component {
 		document.getElementById("Download").download = this.state.char.name + '.json';
 	}
 
+	async handleFileSelect(evt) {
+    var files = evt.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+		var reader = new FileReader();
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+			reader.onload = (function(theFile) {
+				var tmp = JSON.parse(theFile.target.result);
+				document.getElementById('CharSelectName').value = tmp.name;
+				document.getElementById('CharSelectBaseHP').value = tmp.stats_base.hp;
+				document.getElementById('CharSelectBaseDEX').value = tmp.stats_base.dex;
+				document.getElementById('CharSelectBaseATK').value = tmp.stats_base.atk;
+				document.getElementById('CharSelectBaseDEF').value = tmp.stats_base.df;
+				document.getElementById('CharSelectDiceHP').value = tmp.stats_dice.hp;
+				document.getElementById('CharSelectDiceDEX').value = tmp.stats_dice.dex;
+				document.getElementById('CharSelectDiceATK').value = tmp.stats_dice.atk;
+				document.getElementById('CharSelectDiceDEF').value = tmp.stats_dice.df;
+				document.getElementById('CharSelectDiceAcq').value = tmp.dice_acq;
+				document.getElementById('CharSelectInnate').checked = Boolean(tmp.innate);
+				document.getElementById('CharSelectCurrHP').value = tmp.curr_hp;
+				document.getElementById('CharSelectLoot').value = tmp.loot;
+				document.getElementById('CharSelectNotes').value = tmp.player_notes;
+				document.getElementById('CharSelectLockedSlots').value = tmp.locked_slots;
+				document.getElementById('CharSelectScars').value = tmp.scars;
+			})
+			reader.readAsText(f);
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+
 	render() {
 		return (
 			<div className='CharSelect'>
@@ -135,6 +170,15 @@ class CharSelect extends React.Component {
 						>
 						{`Download Json`}
 					</a>
+					<br /><br />
+					<input
+						type="file"
+						id="files"
+						name="files[]"
+						multiple
+						onChange={() => this.handleFileSelect(document.getElementById('files'))}
+					/>
+					<output id="list"></output>
 				</form>
 			</div>
 		)
