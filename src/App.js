@@ -6,9 +6,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import logo from "./TMB logo.png";
 import Character from './Character.js';
-import CharSelectButton from './CharSelectButton'
+import CharInfoButton from './CharInfoButton'
 import Game from './Game.js';
-import './CharSelect.css'
+import './CharInfo.css'
 
 function buttonClick({ navigation }) {
     navigation.navigate("New Screen");
@@ -115,7 +115,7 @@ const App = () => {
             </Stack.Navigator>
         }
     </NavigationContainer>
-    <CharSelectButton />
+    <CharInfoButton />
     {/* <html>
         <body>
             <h1> Test Game </h1>

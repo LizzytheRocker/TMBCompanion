@@ -1,7 +1,7 @@
 import React from 'react'
-import CharSelect from './CharSelect';
+import CharInfo from './CharInfo';
 
-class CharSelectButton extends React.Component {
+class CharInfoButton extends React.Component {
 	constructor() {
 		super();
 		this.state = { showContent: false }
@@ -15,12 +15,12 @@ class CharSelectButton extends React.Component {
 
 	render () {
 		return (
-			<div className='CharSelectButton'>
+			<div className='CharInfoButton'>
 				{/* <h2>Character Selection</h2>
 				<p>Select the character that you want to add to the campaign.</p> */}
 				<div className="dropdown">
-					<button className="dropbtn" onClick={this._showContent.bind(null, this.state.showContent ? false : true)}>Character Selection</button>
-					{ this.state.showContent && (<CharSelect />) }
+					<button className="dropbtn" onClick={this._showContent.bind(null, this.state.showContent ? false : true)}>Character Info</button>
+					{ this.state.showContent && (<CharInfo />) }
 					
 					{/* <div className="dropdown-content">
 						<a href="#">Boomer</a>
@@ -39,4 +39,4 @@ class CharSelectButton extends React.Component {
 	}
 }
 
-export default CharSelectButton
+export default CharInfoButton

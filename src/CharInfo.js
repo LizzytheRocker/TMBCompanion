@@ -6,7 +6,7 @@ import Character from './Character.js';
 
 // <TextField id="standard-basic" label="Standard" />
 
-class CharSelect extends React.Component {
+class CharInfo extends React.Component {
 	constructor() {
 		super();
 		this.state = { char: new Character }
@@ -14,24 +14,24 @@ class CharSelect extends React.Component {
 	}
 
 	async submitChar() {
-		this.state.char.name = document.getElementById('CharSelectName').value;
-		var basehp = document.getElementById('CharSelectBaseHP').value;
-		var basedex = document.getElementById('CharSelectBaseDEX').value;
-		var baseatk = document.getElementById('CharSelectBaseATK').value;
-		var basedef = document.getElementById('CharSelectBaseDEF').value;
+		this.state.char.name = document.getElementById('CharInfoName').value;
+		var basehp = document.getElementById('CharInfoBaseHP').value;
+		var basedex = document.getElementById('CharInfoBaseDEX').value;
+		var baseatk = document.getElementById('CharInfoBaseATK').value;
+		var basedef = document.getElementById('CharInfoBaseDEF').value;
 		this.state.char.stats_base = { hp: Number(basehp), dex: Number(basedex), atk: Number(baseatk), df: Number(basedef) };
-		var dicehp = document.getElementById('CharSelectDiceHP').value;
-		var dicedex = document.getElementById('CharSelectDiceDEX').value;
-		var diceatk = document.getElementById('CharSelectDiceATK').value;
-		var dicedef = document.getElementById('CharSelectDiceDEF').value;
+		var dicehp = document.getElementById('CharInfoDiceHP').value;
+		var dicedex = document.getElementById('CharInfoDiceDEX').value;
+		var diceatk = document.getElementById('CharInfoDiceATK').value;
+		var dicedef = document.getElementById('CharInfoDiceDEF').value;
 		this.state.char.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
-		this.state.char.dice_acq = document.getElementById('CharSelectDiceAcq').value;
-		this.state.char.innate = Boolean(document.getElementById('CharSelectInnate').value);
-		this.state.char.curr_hp = Number(document.getElementById('CharSelectCurrHP').value);
-		this.state.char.loot = document.getElementById('CharSelectLoot').value;
-		this.state.char.player_notes = document.getElementById('CharSelectNotes').value;
-		this.state.char.locked_slots = document.getElementById('CharSelectLockedSlots').value;
-		this.state.char.scars = document.getElementById('CharSelectScars').value;
+		this.state.char.dice_acq = document.getElementById('CharInfoDiceAcq').value;
+		this.state.char.innate = Boolean(document.getElementById('CharInfoInnate').value);
+		this.state.char.curr_hp = Number(document.getElementById('CharInfoCurrHP').value);
+		this.state.char.loot = document.getElementById('CharInfoLoot').value;
+		this.state.char.player_notes = document.getElementById('CharInfoNotes').value;
+		this.state.char.locked_slots = document.getElementById('CharInfoLockedSlots').value;
+		this.state.char.scars = document.getElementById('CharInfoScars').value;
 		document.getElementById("Download").href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.state.char))}`;
 		document.getElementById("Download").download = this.state.char.name + '.json';
 	}
@@ -49,22 +49,22 @@ class CharSelect extends React.Component {
                   '</li>');
 			reader.onload = (function(theFile) {
 				var tmp = JSON.parse(theFile.target.result);
-				document.getElementById('CharSelectName').value = tmp.name;
-				document.getElementById('CharSelectBaseHP').value = tmp.stats_base.hp;
-				document.getElementById('CharSelectBaseDEX').value = tmp.stats_base.dex;
-				document.getElementById('CharSelectBaseATK').value = tmp.stats_base.atk;
-				document.getElementById('CharSelectBaseDEF').value = tmp.stats_base.df;
-				document.getElementById('CharSelectDiceHP').value = tmp.stats_dice.hp;
-				document.getElementById('CharSelectDiceDEX').value = tmp.stats_dice.dex;
-				document.getElementById('CharSelectDiceATK').value = tmp.stats_dice.atk;
-				document.getElementById('CharSelectDiceDEF').value = tmp.stats_dice.df;
-				document.getElementById('CharSelectDiceAcq').value = tmp.dice_acq;
-				document.getElementById('CharSelectInnate').checked = Boolean(tmp.innate);
-				document.getElementById('CharSelectCurrHP').value = tmp.curr_hp;
-				document.getElementById('CharSelectLoot').value = tmp.loot;
-				document.getElementById('CharSelectNotes').value = tmp.player_notes;
-				document.getElementById('CharSelectLockedSlots').value = tmp.locked_slots;
-				document.getElementById('CharSelectScars').value = tmp.scars;
+				document.getElementById('CharInfoName').value = tmp.name;
+				document.getElementById('CharInfoBaseHP').value = tmp.stats_base.hp;
+				document.getElementById('CharInfoBaseDEX').value = tmp.stats_base.dex;
+				document.getElementById('CharInfoBaseATK').value = tmp.stats_base.atk;
+				document.getElementById('CharInfoBaseDEF').value = tmp.stats_base.df;
+				document.getElementById('CharInfoDiceHP').value = tmp.stats_dice.hp;
+				document.getElementById('CharInfoDiceDEX').value = tmp.stats_dice.dex;
+				document.getElementById('CharInfoDiceATK').value = tmp.stats_dice.atk;
+				document.getElementById('CharInfoDiceDEF').value = tmp.stats_dice.df;
+				document.getElementById('CharInfoDiceAcq').value = tmp.dice_acq;
+				document.getElementById('CharInfoInnate').checked = Boolean(tmp.innate);
+				document.getElementById('CharInfoCurrHP').value = tmp.curr_hp;
+				document.getElementById('CharInfoLoot').value = tmp.loot;
+				document.getElementById('CharInfoNotes').value = tmp.player_notes;
+				document.getElementById('CharInfoLockedSlots').value = tmp.locked_slots;
+				document.getElementById('CharInfoScars').value = tmp.scars;
 			})
 			reader.readAsText(f);
     }
@@ -73,89 +73,89 @@ class CharSelect extends React.Component {
 
 	render() {
 		return (
-			<div className='CharSelect'>
+			<div className='CharInfo'>
 				<form>
 					<h2>Character Name</h2>
 					<input
-						id='CharSelectName'
+						id='CharInfoName'
 						type='text'
 					/>
 					<h2>Base Stats:</h2>
 					<p>HP</p>
 					<input
-						id='CharSelectBaseHP'
+						id='CharInfoBaseHP'
 						type='number'
 					/>
 					<p>DEX</p>
 					<input
-						id='CharSelectBaseDEX'
+						id='CharInfoBaseDEX'
 						type='number'
 					/>
 					<p>ATK</p>
 					<input
-						id='CharSelectBaseATK'
+						id='CharInfoBaseATK'
 						type='number'
 					/>
 					<p>DEF</p>
 					<input
-						id='CharSelectBaseDEF'
+						id='CharInfoBaseDEF'
 						type='number'
 					/>
 					<h2>Stat Increases:</h2>
 					<p>HP</p>
 					<input
-						id='CharSelectDiceHP'
+						id='CharInfoDiceHP'
 						type='number'
 					/>
 					<p>DEX</p>
 					<input
-						id='CharSelectDiceDEX'
+						id='CharInfoDiceDEX'
 						type='number'
 					/>
 					<p>ATK</p>
 					<input
-						id='CharSelectDiceATK'
+						id='CharInfoDiceATK'
 						type='number'
 					/>
 					<p>DEF</p>
 					<input
-						id='CharSelectDiceDEF'
+						id='CharInfoDiceDEF'
 						type='number'
 					/>
 					<h2>Skill Dice</h2>
 					<input
-						id='CharSelectDiceAcq'
+						id='CharInfoDiceAcq'
 						type='text'
 					/>
 					<h2>Innate +1</h2>
 					<input
-						id='CharSelectInnate'
+						id='CharInfoInnate'
 						type='checkbox'
 					/>
 					<h2>Current HP</h2>
 					<input
-						id='CharSelectCurrHP'
+						id='CharInfoCurrHP'
 						type='number'
 					/>
 					<h2>Loot</h2>
 					<input
-						id='CharSelectLoot'
+						id='CharInfoLoot'
 						type='text'
 					/>
 					<h2>Notes</h2>
 					<p>Any extra notes, eg skill die that needs a specific value remembered</p>
 					<input
-						id='CharSelectNotes'
+						id='CharInfoNotes'
 						type='text'
 					/>
 					<h2>Locked Slots</h2>
 					<input
-						id='CharSelectLockedSlots'
+						id='CharInfoLockedSlots'
 						type='text'
 					/>
 					<h2>Scars</h2>
 					<input
-						id='CharSelectScars'
+						id='CharInfoScars'
 						type='text'
 					/>
 					<br /><br />
@@ -185,4 +185,4 @@ class CharSelect extends React.Component {
 	}
 }
 
-export default CharSelect
+export default CharInfo
