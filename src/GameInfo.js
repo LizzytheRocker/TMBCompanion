@@ -41,68 +41,74 @@ class GameInfo extends React.Component {
 		char.scars = document.getElementById('CharInfoScars1').value;
 		this.state.game.addCharacter(char);
 		// char 2
-		var char2 = new Character
-		char2.name = document.getElementById('CharInfoName2').value;
-		var basehp = document.getElementById('CharInfoBaseHP2').value;
-		var basedex = document.getElementById('CharInfoBaseDEX2').value;
-		var baseatk = document.getElementById('CharInfoBaseATK2').value;
-		var basedef = document.getElementById('CharInfoBaseDEF2').value;
-		char2.stats_base = { hp: Number(basehp), dex: Number(basedex), atk: Number(baseatk), df: Number(basedef) };
-		var dicehp = document.getElementById('CharInfoDiceHP2').value;
-		var dicedex = document.getElementById('CharInfoDiceDEX2').value;
-		var diceatk = document.getElementById('CharInfoDiceATK2').value;
-		var dicedef = document.getElementById('CharInfoDiceDEF2').value;
-		char2.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
-		char2.dice_acq = document.getElementById('CharInfoDiceAcq2').value;
-		char2.innate = Boolean(document.getElementById('CharInfoInnate2').value);
-		char2.curr_hp = Number(document.getElementById('CharInfoCurrHP2').value);
-		char2.loot = document.getElementById('CharInfoLoot2').value;
-		char2.player_notes = document.getElementById('CharInfoNotes2').value;
-		char2.locked_slots = document.getElementById('CharInfoLockedSlots2').value;
-		char2.scars = document.getElementById('CharInfoScars2').value;
-		this.state.game.addCharacter(char2);
+		if (Boolean(document.getElementById('CharInfo2'))) {
+			var char2 = new Character;
+			char2.name = document.getElementById('CharInfoName2').value;
+			var basehp = document.getElementById('CharInfoBaseHP2').value;
+			var basedex = document.getElementById('CharInfoBaseDEX2').value;
+			var baseatk = document.getElementById('CharInfoBaseATK2').value;
+			var basedef = document.getElementById('CharInfoBaseDEF2').value;
+			char2.stats_base = { hp: Number(basehp), dex: Number(basedex), atk: Number(baseatk), df: Number(basedef) };
+			var dicehp = document.getElementById('CharInfoDiceHP2').value;
+			var dicedex = document.getElementById('CharInfoDiceDEX2').value;
+			var diceatk = document.getElementById('CharInfoDiceATK2').value;
+			var dicedef = document.getElementById('CharInfoDiceDEF2').value;
+			char2.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
+			char2.dice_acq = document.getElementById('CharInfoDiceAcq2').value;
+			char2.innate = Boolean(document.getElementById('CharInfoInnate2').value);
+			char2.curr_hp = Number(document.getElementById('CharInfoCurrHP2').value);
+			char2.loot = document.getElementById('CharInfoLoot2').value;
+			char2.player_notes = document.getElementById('CharInfoNotes2').value;
+			char2.locked_slots = document.getElementById('CharInfoLockedSlots2').value;
+			char2.scars = document.getElementById('CharInfoScars2').value;
+			this.state.game.addCharacter(char2);
+		}
 		// char 3
-		var char3 = new Character
-		char3.name = document.getElementById('CharInfoName3').value;
-		var basehp = document.getElementById('CharInfoBaseHP3').value;
-		var basedex = document.getElementById('CharInfoBaseDEX3').value;
-		var baseatk = document.getElementById('CharInfoBaseATK3').value;
-		var basedef = document.getElementById('CharInfoBaseDEF3').value;
-		char3.stats_base = { hp: Number(basehp), dex: Number(basedex), atk: Number(baseatk), df: Number(basedef) };
-		var dicehp = document.getElementById('CharInfoDiceHP3').value;
-		var dicedex = document.getElementById('CharInfoDiceDEX3').value;
-		var diceatk = document.getElementById('CharInfoDiceATK3').value;
-		var dicedef = document.getElementById('CharInfoDiceDEF3').value;
-		char3.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
-		char3.dice_acq = document.getElementById('CharInfoDiceAcq3').value;
-		char3.innate = Boolean(document.getElementById('CharInfoInnate3').value);
-		char3.curr_hp = Number(document.getElementById('CharInfoCurrHP3').value);
-		char3.loot = document.getElementById('CharInfoLoot3').value;
-		char3.player_notes = document.getElementById('CharInfoNotes3').value;
-		char3.locked_slots = document.getElementById('CharInfoLockedSlots3').value;
-		char3.scars = document.getElementById('CharInfoScars3').value;
-		this.state.game.addCharacter(char3);
+		if (Boolean(document.getElementById('CharInfo3'))) {
+			var char3 = new Character;
+			char3.name = document.getElementById('CharInfoName3').value;
+			var basehp = document.getElementById('CharInfoBaseHP3').value;
+			var basedex = document.getElementById('CharInfoBaseDEX3').value;
+			var baseatk = document.getElementById('CharInfoBaseATK3').value;
+			var basedef = document.getElementById('CharInfoBaseDEF3').value;
+			char3.stats_base = { hp: Number(basehp), dex: Number(basedex), atk: Number(baseatk), df: Number(basedef) };
+			var dicehp = document.getElementById('CharInfoDiceHP3').value;
+			var dicedex = document.getElementById('CharInfoDiceDEX3').value;
+			var diceatk = document.getElementById('CharInfoDiceATK3').value;
+			var dicedef = document.getElementById('CharInfoDiceDEF3').value;
+			char3.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
+			char3.dice_acq = document.getElementById('CharInfoDiceAcq3').value;
+			char3.innate = Boolean(document.getElementById('CharInfoInnate3').value);
+			char3.curr_hp = Number(document.getElementById('CharInfoCurrHP3').value);
+			char3.loot = document.getElementById('CharInfoLoot3').value;
+			char3.player_notes = document.getElementById('CharInfoNotes3').value;
+			char3.locked_slots = document.getElementById('CharInfoLockedSlots3').value;
+			char3.scars = document.getElementById('CharInfoScars3').value;
+			this.state.game.addCharacter(char3);
+		}
 		// char 4
-		var char4 = new Character
-		char4.name = document.getElementById('CharInfoName4').value;
-		var basehp = document.getElementById('CharInfoBaseHP4').value;
-		var basedex = document.getElementById('CharInfoBaseDEX4').value;
-		var baseatk = document.getElementById('CharInfoBaseATK4').value;
-		var basedef = document.getElementById('CharInfoBaseDEF4').value;
-		char4.stats_base = { hp: Number(basehp), dex: Number(basedex), atk: Number(baseatk), df: Number(basedef) };
-		var dicehp = document.getElementById('CharInfoDiceHP4').value;
-		var dicedex = document.getElementById('CharInfoDiceDEX4').value;
-		var diceatk = document.getElementById('CharInfoDiceATK4').value;
-		var dicedef = document.getElementById('CharInfoDiceDEF4').value;
-		char4.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
-		char4.dice_acq = document.getElementById('CharInfoDiceAcq4').value;
-		char4.innate = Boolean(document.getElementById('CharInfoInnate4').value);
-		char4.curr_hp = Number(document.getElementById('CharInfoCurrHP4').value);
-		char4.loot = document.getElementById('CharInfoLoot4').value;
-		char4.player_notes = document.getElementById('CharInfoNotes4').value;
-		char4.locked_slots = document.getElementById('CharInfoLockedSlots4').value;
-		char4.scars = document.getElementById('CharInfoScars4').value;
-		this.state.game.addCharacter(char4);
+		if (Boolean(document.getElementById('CharInfo4'))) {
+			var char4 = new Character;
+			char4.name = document.getElementById('CharInfoName4').value;
+			var basehp = document.getElementById('CharInfoBaseHP4').value;
+			var basedex = document.getElementById('CharInfoBaseDEX4').value;
+			var baseatk = document.getElementById('CharInfoBaseATK4').value;
+			var basedef = document.getElementById('CharInfoBaseDEF4').value;
+			char4.stats_base = { hp: Number(basehp), dex: Number(basedex), atk: Number(baseatk), df: Number(basedef) };
+			var dicehp = document.getElementById('CharInfoDiceHP4').value;
+			var dicedex = document.getElementById('CharInfoDiceDEX4').value;
+			var diceatk = document.getElementById('CharInfoDiceATK4').value;
+			var dicedef = document.getElementById('CharInfoDiceDEF4').value;
+			char4.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
+			char4.dice_acq = document.getElementById('CharInfoDiceAcq4').value;
+			char4.innate = Boolean(document.getElementById('CharInfoInnate4').value);
+			char4.curr_hp = Number(document.getElementById('CharInfoCurrHP4').value);
+			char4.loot = document.getElementById('CharInfoLoot4').value;
+			char4.player_notes = document.getElementById('CharInfoNotes4').value;
+			char4.locked_slots = document.getElementById('CharInfoLockedSlots4').value;
+			char4.scars = document.getElementById('CharInfoScars4').value;
+			this.state.game.addCharacter(char4);
+		}
 		document.getElementById("Download").href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.state.game))}`;
 		document.getElementById("Download").download = this.state.game.save_name + '.json';
 	}
@@ -144,56 +150,62 @@ class GameInfo extends React.Component {
 				document.getElementById('CharInfoLockedSlots1').value = tmp.characters[0].locked_slots;
 				document.getElementById('CharInfoScars1').value = tmp.characters[0].scars;
 				// char 2
-				document.getElementById('CharInfoName2').value = tmp.characters[1].name;
-				document.getElementById('CharInfoBaseHP2').value = tmp.characters[1].stats_base.hp;
-				document.getElementById('CharInfoBaseDEX2').value = tmp.characters[1].stats_base.dex;
-				document.getElementById('CharInfoBaseATK2').value = tmp.characters[1].stats_base.atk;
-				document.getElementById('CharInfoBaseDEF2').value = tmp.characters[1].stats_base.df;
-				document.getElementById('CharInfoDiceHP2').value = tmp.characters[1].stats_dice.hp;
-				document.getElementById('CharInfoDiceDEX2').value = tmp.characters[1].stats_dice.dex;
-				document.getElementById('CharInfoDiceATK2').value = tmp.characters[1].stats_dice.atk;
-				document.getElementById('CharInfoDiceDEF2').value = tmp.characters[1].stats_dice.df;
-				document.getElementById('CharInfoDiceAcq2').value = tmp.characters[1].dice_acq;
-				document.getElementById('CharInfoInnate2').checked = Boolean(tmp.characters[1].innate);
-				document.getElementById('CharInfoCurrHP2').value = tmp.characters[1].curr_hp;
-				document.getElementById('CharInfoLoot2').value = tmp.characters[1].loot;
-				document.getElementById('CharInfoNotes2').value = tmp.characters[1].player_notes;
-				document.getElementById('CharInfoLockedSlots2').value = tmp.characters[1].locked_slots;
-				document.getElementById('CharInfoScars2').value = tmp.characters[1].scars;
+				if (tmp.characters.length > 1) {
+					document.getElementById('CharInfoName2').value = tmp.characters[1].name;
+					document.getElementById('CharInfoBaseHP2').value = tmp.characters[1].stats_base.hp;
+					document.getElementById('CharInfoBaseDEX2').value = tmp.characters[1].stats_base.dex;
+					document.getElementById('CharInfoBaseATK2').value = tmp.characters[1].stats_base.atk;
+					document.getElementById('CharInfoBaseDEF2').value = tmp.characters[1].stats_base.df;
+					document.getElementById('CharInfoDiceHP2').value = tmp.characters[1].stats_dice.hp;
+					document.getElementById('CharInfoDiceDEX2').value = tmp.characters[1].stats_dice.dex;
+					document.getElementById('CharInfoDiceATK2').value = tmp.characters[1].stats_dice.atk;
+					document.getElementById('CharInfoDiceDEF2').value = tmp.characters[1].stats_dice.df;
+					document.getElementById('CharInfoDiceAcq2').value = tmp.characters[1].dice_acq;
+					document.getElementById('CharInfoInnate2').checked = Boolean(tmp.characters[1].innate);
+					document.getElementById('CharInfoCurrHP2').value = tmp.characters[1].curr_hp;
+					document.getElementById('CharInfoLoot2').value = tmp.characters[1].loot;
+					document.getElementById('CharInfoNotes2').value = tmp.characters[1].player_notes;
+					document.getElementById('CharInfoLockedSlots2').value = tmp.characters[1].locked_slots;
+					document.getElementById('CharInfoScars2').value = tmp.characters[1].scars;
+				}
 				// char 3
-				document.getElementById('CharInfoName3').value = tmp.characters[2].name;
-				document.getElementById('CharInfoBaseHP3').value = tmp.characters[2].stats_base.hp;
-				document.getElementById('CharInfoBaseDEX3').value = tmp.characters[2].stats_base.dex;
-				document.getElementById('CharInfoBaseATK3').value = tmp.characters[2].stats_base.atk;
-				document.getElementById('CharInfoBaseDEF3').value = tmp.characters[2].stats_base.df;
-				document.getElementById('CharInfoDiceHP3').value = tmp.characters[2].stats_dice.hp;
-				document.getElementById('CharInfoDiceDEX3').value = tmp.characters[2].stats_dice.dex;
-				document.getElementById('CharInfoDiceATK3').value = tmp.characters[2].stats_dice.atk;
-				document.getElementById('CharInfoDiceDEF3').value = tmp.characters[2].stats_dice.df;
-				document.getElementById('CharInfoDiceAcq3').value = tmp.characters[2].dice_acq;
-				document.getElementById('CharInfoInnate3').checked = Boolean(tmp.characters[2].innate);
-				document.getElementById('CharInfoCurrHP3').value = tmp.characters[2].curr_hp;
-				document.getElementById('CharInfoLoot3').value = tmp.characters[2].loot;
-				document.getElementById('CharInfoNotes3').value = tmp.characters[2].player_notes;
-				document.getElementById('CharInfoLockedSlots3').value = tmp.characters[2].locked_slots;
-				document.getElementById('CharInfoScars3').value = tmp.characters[2].scars;
+				if (tmp.characters.length > 2) {
+					document.getElementById('CharInfoName3').value = tmp.characters[2].name;
+					document.getElementById('CharInfoBaseHP3').value = tmp.characters[2].stats_base.hp;
+					document.getElementById('CharInfoBaseDEX3').value = tmp.characters[2].stats_base.dex;
+					document.getElementById('CharInfoBaseATK3').value = tmp.characters[2].stats_base.atk;
+					document.getElementById('CharInfoBaseDEF3').value = tmp.characters[2].stats_base.df;
+					document.getElementById('CharInfoDiceHP3').value = tmp.characters[2].stats_dice.hp;
+					document.getElementById('CharInfoDiceDEX3').value = tmp.characters[2].stats_dice.dex;
+					document.getElementById('CharInfoDiceATK3').value = tmp.characters[2].stats_dice.atk;
+					document.getElementById('CharInfoDiceDEF3').value = tmp.characters[2].stats_dice.df;
+					document.getElementById('CharInfoDiceAcq3').value = tmp.characters[2].dice_acq;
+					document.getElementById('CharInfoInnate3').checked = Boolean(tmp.characters[2].innate);
+					document.getElementById('CharInfoCurrHP3').value = tmp.characters[2].curr_hp;
+					document.getElementById('CharInfoLoot3').value = tmp.characters[2].loot;
+					document.getElementById('CharInfoNotes3').value = tmp.characters[2].player_notes;
+					document.getElementById('CharInfoLockedSlots3').value = tmp.characters[2].locked_slots;
+					document.getElementById('CharInfoScars3').value = tmp.characters[2].scars;
+				}
 				// char 4
-				document.getElementById('CharInfoName4').value = tmp.characters[3].name;
-				document.getElementById('CharInfoBaseHP4').value = tmp.characters[3].stats_base.hp;
-				document.getElementById('CharInfoBaseDEX4').value = tmp.characters[3].stats_base.dex;
-				document.getElementById('CharInfoBaseATK4').value = tmp.characters[3].stats_base.atk;
-				document.getElementById('CharInfoBaseDEF4').value = tmp.characters[3].stats_base.df;
-				document.getElementById('CharInfoDiceHP4').value = tmp.characters[3].stats_dice.hp;
-				document.getElementById('CharInfoDiceDEX4').value = tmp.characters[3].stats_dice.dex;
-				document.getElementById('CharInfoDiceATK4').value = tmp.characters[3].stats_dice.atk;
-				document.getElementById('CharInfoDiceDEF4').value = tmp.characters[3].stats_dice.df;
-				document.getElementById('CharInfoDiceAcq4').value = tmp.characters[3].dice_acq;
-				document.getElementById('CharInfoInnate4').checked = Boolean(tmp.characters[3].innate);
-				document.getElementById('CharInfoCurrHP4').value = tmp.characters[3].curr_hp;
-				document.getElementById('CharInfoLoot4').value = tmp.characters[3].loot;
-				document.getElementById('CharInfoNotes4').value = tmp.characters[3].player_notes;
-				document.getElementById('CharInfoLockedSlots4').value = tmp.characters[3].locked_slots;
-				document.getElementById('CharInfoScars4').value = tmp.characters[3].scars;
+				if (tmp.characters.length > 3) {
+					document.getElementById('CharInfoName4').value = tmp.characters[3].name;
+					document.getElementById('CharInfoBaseHP4').value = tmp.characters[3].stats_base.hp;
+					document.getElementById('CharInfoBaseDEX4').value = tmp.characters[3].stats_base.dex;
+					document.getElementById('CharInfoBaseATK4').value = tmp.characters[3].stats_base.atk;
+					document.getElementById('CharInfoBaseDEF4').value = tmp.characters[3].stats_base.df;
+					document.getElementById('CharInfoDiceHP4').value = tmp.characters[3].stats_dice.hp;
+					document.getElementById('CharInfoDiceDEX4').value = tmp.characters[3].stats_dice.dex;
+					document.getElementById('CharInfoDiceATK4').value = tmp.characters[3].stats_dice.atk;
+					document.getElementById('CharInfoDiceDEF4').value = tmp.characters[3].stats_dice.df;
+					document.getElementById('CharInfoDiceAcq4').value = tmp.characters[3].dice_acq;
+					document.getElementById('CharInfoInnate4').checked = Boolean(tmp.characters[3].innate);
+					document.getElementById('CharInfoCurrHP4').value = tmp.characters[3].curr_hp;
+					document.getElementById('CharInfoLoot4').value = tmp.characters[3].loot;
+					document.getElementById('CharInfoNotes4').value = tmp.characters[3].player_notes;
+					document.getElementById('CharInfoLockedSlots4').value = tmp.characters[3].locked_slots;
+					document.getElementById('CharInfoScars4').value = tmp.characters[3].scars;
+				}
 			})
 			reader.readAsText(f);
     }
@@ -240,6 +252,7 @@ class GameInfo extends React.Component {
 						type='text'
 					/>
 					<h1>Character 1</h1>
+					<p>Must have at least one character</p>
 					<h2>Character Name</h2>
 					<input
 						id='CharInfoName1'
@@ -322,6 +335,11 @@ class GameInfo extends React.Component {
 					<input
 						id='CharInfoScars1'
 						type='text'
+					/>
+					<h2>Do you have a second character?</h2>
+					<input
+						id='CharInfo2'
+						type='checkbox'
 					/>
 					<h1>Character 2</h1>
 					<h2>Character Name</h2>
@@ -407,6 +425,11 @@ class GameInfo extends React.Component {
 						id='CharInfoScars2'
 						type='text'
 					/>
+					<h2>Do you have a third character?</h2>
+					<input
+						id='CharInfo3'
+						type='checkbox'
+					/>
 					<h1>Character 3</h1>
 					<h2>Character Name</h2>
 					<input
@@ -490,6 +513,11 @@ class GameInfo extends React.Component {
 					<input
 						id='CharInfoScars3'
 						type='text'
+					/>
+					<h2>Do you have a fourth character?</h2>
+					<input
+						id='CharInfo4'
+						type='checkbox'
 					/>
 					<h1>Character 4</h1>
 					<h2>Character Name</h2>
