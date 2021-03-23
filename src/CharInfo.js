@@ -10,7 +10,7 @@ class CharInfo extends React.Component {
 	constructor() {
 		super();
 		this.state = { char: new Character }
-		this.state.char.name = 'test'
+		// this.state.char.name = 'test'
 	}
 
 	async submitChar() {

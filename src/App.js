@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import logo from "./TMB logo.png";
 import Character from './Character.js';
-import CharInfoButton from './CharInfoButton'
+import GameInfoButton from './GameInfoButton'
 import Game from './Game.js';
 import './CharInfo.css'
 
@@ -115,7 +115,7 @@ const App = () => {
             </Stack.Navigator>
         }
     </NavigationContainer>
-    <CharInfoButton />
+    <GameInfoButton />
     {/* <html>
         <body>
             <h1> Test Game </h1>
