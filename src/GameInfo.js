@@ -18,7 +18,6 @@ class GameInfo extends React.Component {
 		this.state.game.encounters_completed = document.getElementById('GameInfoEncountersCompleted').value;
 		this.state.game.encounters_remaining = document.getElementById('GameInfoEncountersRemaining').value;
 		this.state.game.loot_used = document.getElementById('GameInfoLootUsed').value;
-		this.state.game.characters = document.getElementById('GameInfoCharacters').value;
 		// char 1
 		var char = new Character;
 		char.name = document.getElementById('CharInfoName1').value;
