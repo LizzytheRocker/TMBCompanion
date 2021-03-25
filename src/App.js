@@ -5,10 +5,11 @@ import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import logo from "./TMB logo.png";
-import Character from './Character.js';
 import GameInfoButton from './GameInfoButton'
-import Game from './Game.js';
 import './CharInfo.css'
+import Character from './Character.js';
+import Game from './Game.js';
+import Campaign from './Campaign.js';
 
 function buttonClick({ navigation }) {
     navigation.navigate("New Screen");
@@ -80,20 +81,23 @@ function NewScreen({ navigation }) {
 
 
 const App = () => {
-    /* Example test game
+    /* Example test campaign
     var character = new Character("Test", { hp: 4, dex: 2, atk: 3, df: 3 }, { hp: 0, dex: 2, atk: 1, df: 0 }, "1, 4", true, 2, "Big gun", "The bad guy is bad", "2 bombs", "None");
-    var temp = new Game();
-    temp.save_name = "Test Game";
+    var game = new Game("Test Game", "Bad Guy", 2, 3, "The first one", "All of the other ones", "Big bomb", []);
+    game.addCharacter(character);
+    var temp = new Campaign();
+    temp.save_name = "Test Campaign";
+    temp.adventure_effect = "-1 damage";
+    temp.boons = "+1 damage";
+    temp.characters = game.characters;
+    temp.tyrants_defeated = "Dragon";
     temp.tyrant = "Bad Guy";
-    temp.day_count = 2;
-    temp.progress_points = 3;
-    temp.encounters_completed = "The first one";
-    temp.encounters_remaining = "All of the other ones";
-    temp.loot_used = "Big bomb";
-    temp.addCharacter(character);
+    temp.starting_point = 1;
+    temp.required_progress = 20;
+    temp.game = game;
 
     var json = JSON.stringify(temp);
-    var game = Object.assign(new Game, JSON.parse(json));*/
+    var campaign = Object.assign(new Campaign, JSON.parse(json));*/
 
     return (
 	<>
@@ -118,42 +122,80 @@ const App = () => {
     <GameInfoButton />
     {/* <html>
         <body>
-            <h1> Test Game </h1>
+            <h1> Test Campaign </h1>
             <ul>
-                <li> Save name: {game.save_name} </li>
-                <li> Tyrant: {game.tyrant} </li>
-                <li> Day count: {game.day_count} </li>
-                <li> Progress points: {game.progress_points} </li>
-                <li> Encounters completed: {game.encounters_completed} </li>
-                <li> Encounters remaining: {game.encounters_remaining} </li>
-                <li> Loot used: {game.loot_used} </li>
-                <li> Characters: {game.characters.length} </li>
+                <li> Save name: {campaign.save_name} </li>
+                <li> Adventure effect: {campaign.adventure_effect} </li>
+                <li> Boons: {campaign.boons} </li>
+                <li> Tyrants Defeated: {campaign.tyrants_defeated} </li>
+                <li> Tyrant: {campaign.tyrant} </li>
+                <li> Starting progress points: {campaign.starting_point} </li>
+                <li> Required progress points: {campaign.required_progress} </li>
+                <li> Characters: {campaign.game.characters.length} </li>
                 <ul>
-                            <li> Name: {game.characters[0].name} </li>
+                    <li> Name: {campaign.game.characters[0].name} </li>
                     <li> Base stats:
                         <ul>
-                            <li> HP: {game.characters[0].stats_base.hp} </li>
-                            <li> Dexterity: {game.characters[0].stats_base.dex} </li>
-                            <li> Attack: {game.characters[0].stats_base.atk} </li>
-                            <li> Defense: {game.characters[0].stats_base.df} </li>
+                            <li> HP: {campaign.game.characters[0].stats_base.hp} </li>
+                            <li> Dexterity: {campaign.game.characters[0].stats_base.dex} </li>
+                            <li> Attack: {campaign.game.characters[0].stats_base.atk} </li>
+                            <li> Defense: {campaign.game.characters[0].stats_base.df} </li>
                         </ul>
                     </li>
                     <li> Dice stats:
                         <ul>
-                            <li> HP: {game.characters[0].stats_dice.hp} </li>
-                            <li> Dexterity: {game.characters[0].stats_dice.dex} </li>
-                            <li> Attack: {game.characters[0].stats_dice.atk} </li>
-                            <li> Defense: {game.characters[0].stats_dice.df} </li>
+                            <li> HP: {campaign.game.characters[0].stats_dice.hp} </li>
+                            <li> Dexterity: {campaign.game.characters[0].stats_dice.dex} </li>
+                            <li> Attack: {campaign.game.characters[0].stats_dice.atk} </li>
+                            <li> Defense: {campaign.game.characters[0].stats_dice.df} </li>
                         </ul>
                     </li>
-                    <li> Dice acquired: {game.characters[0].dice_acq.toString()} </li>
-                    <li> Innate +1: {game.characters[0].innate.toString()} </li>
-                    <li> Current HP: {game.characters[0].curr_hp} </li>
-                    <li> Loot: {game.characters[0].loot.toString()} </li>
-                    <li> Notes: {game.characters[0].player_notes} </li>
-                    <li> Locked Slots: {game.characters[0].locked_slots.toString()} </li>
-                    <li> Scars: {game.characters[0].scars.toString()} </li>
+                    <li> Dice acquired: {campaign.game.characters[0].dice_acq.toString()} </li>
+                    <li> Innate +1: {campaign.game.characters[0].innate.toString()} </li>
+                    <li> Current HP: {campaign.game.characters[0].curr_hp} </li>
+                    <li> Loot: {campaign.game.characters[0].loot.toString()} </li>
+                    <li> Notes: {campaign.game.characters[0].player_notes} </li>
+                    <li> Locked Slots: {campaign.game.characters[0].locked_slots.toString()} </li>
+                    <li> Scars: {campaign.game.characters[0].scars.toString()} </li>
                 </ul>
+                <li> Game: 
+                    <ul>
+                        <li> Save name: {campaign.game.save_name} </li>
+                        <li> Tyrant: {campaign.game.tyrant} </li>
+                        <li> Day count: {campaign.game.day_count} </li>
+                        <li> Progress points: {campaign.game.progress_points} </li>
+                        <li> Encounters completed: {campaign.game.encounters_completed} </li>
+                        <li> Encounters remaining: {campaign.game.encounters_remaining} </li>
+                        <li> Loot used: {campaign.game.loot_used} </li>
+                        <li> Characters: {campaign.game.characters.length} </li>
+                        <ul>
+                            <li> Name: {campaign.game.characters[0].name} </li>
+                            <li> Base stats:
+                                <ul>
+                                    <li> HP: {campaign.game.characters[0].stats_base.hp} </li>
+                                    <li> Dexterity: {campaign.game.characters[0].stats_base.dex} </li>
+                                    <li> Attack: {campaign.game.characters[0].stats_base.atk} </li>
+                                    <li> Defense: {campaign.game.characters[0].stats_base.df} </li>
+                                </ul>
+                            </li>
+                            <li> Dice stats:
+                                <ul>
+                                    <li> HP: {campaign.game.characters[0].stats_dice.hp} </li>
+                                    <li> Dexterity: {campaign.game.characters[0].stats_dice.dex} </li>
+                                    <li> Attack: {campaign.game.characters[0].stats_dice.atk} </li>
+                                    <li> Defense: {campaign.game.characters[0].stats_dice.df} </li>
+                                </ul>
+                            </li>
+                            <li> Dice acquired: {campaign.game.characters[0].dice_acq.toString()} </li>
+                            <li> Innate +1: {campaign.game.characters[0].innate.toString()} </li>
+                            <li> Current HP: {campaign.game.characters[0].curr_hp} </li>
+                            <li> Loot: {campaign.game.characters[0].loot.toString()} </li>
+                            <li> Notes: {campaign.game.characters[0].player_notes} </li>
+                            <li> Locked Slots: {campaign.game.characters[0].locked_slots.toString()} </li>
+                            <li> Scars: {campaign.game.characters[0].scars.toString()} </li>
+                        </ul>
+                    </ul>
+                </li>
             </ul>
         </body>
     </html> */}
