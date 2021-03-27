@@ -32,7 +32,7 @@ class GameInfo extends React.Component {
 		var dicedef = document.getElementById('CharInfoDiceDEF1').value;
 		char.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
 		char.dice_acq = document.getElementById('CharInfoDiceAcq1').value;
-		char.innate = Boolean(document.getElementById('CharInfoInnate1').value);
+		char.innate = Boolean(document.getElementById('CharInfoInnate1').checked);
 		char.curr_hp = Number(document.getElementById('CharInfoCurrHP1').value);
 		char.loot = document.getElementById('CharInfoLoot1').value;
 		char.player_notes = document.getElementById('CharInfoNotes1').value;
@@ -40,7 +40,7 @@ class GameInfo extends React.Component {
 		char.scars = document.getElementById('CharInfoScars1').value;
 		this.state.game.addCharacter(char);
 		// char 2
-		if (Boolean(document.getElementById('CharInfo2'))) {
+		if (Boolean(document.getElementById('CharInfo2').checked)) {
 			var char2 = new Character;
 			char2.name = document.getElementById('CharInfoName2').value;
 			var basehp = document.getElementById('CharInfoBaseHP2').value;
@@ -54,7 +54,7 @@ class GameInfo extends React.Component {
 			var dicedef = document.getElementById('CharInfoDiceDEF2').value;
 			char2.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
 			char2.dice_acq = document.getElementById('CharInfoDiceAcq2').value;
-			char2.innate = Boolean(document.getElementById('CharInfoInnate2').value);
+			char2.innate = Boolean(document.getElementById('CharInfoInnate2').checked);
 			char2.curr_hp = Number(document.getElementById('CharInfoCurrHP2').value);
 			char2.loot = document.getElementById('CharInfoLoot2').value;
 			char2.player_notes = document.getElementById('CharInfoNotes2').value;
@@ -63,7 +63,7 @@ class GameInfo extends React.Component {
 			this.state.game.addCharacter(char2);
 		}
 		// char 3
-		if (Boolean(document.getElementById('CharInfo3'))) {
+		if (Boolean(document.getElementById('CharInfo3').checked)) {
 			var char3 = new Character;
 			char3.name = document.getElementById('CharInfoName3').value;
 			var basehp = document.getElementById('CharInfoBaseHP3').value;
@@ -77,7 +77,7 @@ class GameInfo extends React.Component {
 			var dicedef = document.getElementById('CharInfoDiceDEF3').value;
 			char3.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
 			char3.dice_acq = document.getElementById('CharInfoDiceAcq3').value;
-			char3.innate = Boolean(document.getElementById('CharInfoInnate3').value);
+			char3.innate = Boolean(document.getElementById('CharInfoInnate3').checked);
 			char3.curr_hp = Number(document.getElementById('CharInfoCurrHP3').value);
 			char3.loot = document.getElementById('CharInfoLoot3').value;
 			char3.player_notes = document.getElementById('CharInfoNotes3').value;
@@ -86,7 +86,7 @@ class GameInfo extends React.Component {
 			this.state.game.addCharacter(char3);
 		}
 		// char 4
-		if (Boolean(document.getElementById('CharInfo4'))) {
+		if (Boolean(document.getElementById('CharInfo4').checked)) {
 			var char4 = new Character;
 			char4.name = document.getElementById('CharInfoName4').value;
 			var basehp = document.getElementById('CharInfoBaseHP4').value;
@@ -100,7 +100,7 @@ class GameInfo extends React.Component {
 			var dicedef = document.getElementById('CharInfoDiceDEF4').value;
 			char4.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
 			char4.dice_acq = document.getElementById('CharInfoDiceAcq4').value;
-			char4.innate = Boolean(document.getElementById('CharInfoInnate4').value);
+			char4.innate = Boolean(document.getElementById('CharInfoInnate4').checked);
 			char4.curr_hp = Number(document.getElementById('CharInfoCurrHP4').value);
 			char4.loot = document.getElementById('CharInfoLoot4').value;
 			char4.player_notes = document.getElementById('CharInfoNotes4').value;
