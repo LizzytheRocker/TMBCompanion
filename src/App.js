@@ -5,19 +5,14 @@ import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import logo from "./TMB logo.png";
+import CharInfoButton from './CharInfoButton'
+import GameInfoButton from './GameInfoButton'
 import CampaignInfoButton from './CampaignInfoButton'
 import './CharInfo.css'
 import Character from './Character.js';
 import Game from './Game.js';
 import Campaign from './Campaign.js';
 
-function buttonClick({ navigation }) {
-    navigation.navigate("New Screen");
-}
-
-function backButton({ navigation }) {
-    navigation.navigate("Main Menu");
-}
 
 const Button = styled.button`
     background-color: #00bcd4;
@@ -59,12 +54,17 @@ function MainMenu({ navigation }) {
 
                 <Space></Space>
                 <div>
-                <Button onClick={buttonClick({ navigation })}>Create Game</Button>
+                <Button onClick={() => navigation.navigate("Character Screen")}>Create Character</Button>
                 </div>
 
                 <Space></Space>
                 <div>
-                <Button>Load Game</Button>
+                <Button onClick={() => navigation.navigate("Game Screen")}>Create Game</Button>
+                </div>
+
+		<Space></Space>
+                <div>
+                <Button onClick={() => navigation.navigate("Campaign Screen")}>Create Campaign</Button>
                 </div>
                 <Space></Space>
                 <Space></Space>
@@ -73,10 +73,35 @@ function MainMenu({ navigation }) {
     );
 }
 
-function NewScreen({ navigation }) {
-    return <Button onClick={backButton({ navigation })}>Back</Button>;
+function CharacterScreen({ navigation }) {
+    return (
+	<div>
+	<CharInfoButton />
+	<Space></Space>
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	</div>
+    );
 }
 
+function GameScreen({ navigation }) {
+    return (
+	<div>
+	<GameInfoButton />
+	<Space></Space>
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	</div>
+    );
+}
+
+function CampaignScreen({ navigation }) {
+    return (
+	<div>
+	<CampaignInfoButton />
+	<Space></Space>
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	</div>
+    );
+}
 
 
 
@@ -110,16 +135,29 @@ const App = () => {
                     cardStyle: { backgroundColor: "#28527a" }
                 }}
                 >
+		<Stack.Screen
+            	    name="Main Menu"
+            	    component={MainMenu}
+            	    options={{ headerShown: false }}
+          	/>
                 <Stack.Screen
-                    name="Main Menu"
-                    component={MainMenu}
+                    name="Character Screen"
+                    component={CharacterScreen}
                     options={{ headerShown: false }}
                 />
-                <Stack.Screen name="New Screen" component={NewScreen} />
+                <Stack.Screen
+                    name="Game Screen"
+                    component={GameScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Campaign Screen"
+                    component={CampaignScreen}
+                    options={{ headerShown: false }}
+                />
             </Stack.Navigator>
         }
     </NavigationContainer>
-    <CampaignInfoButton />
     {/* <html>
         <body>
             <h1> Test Campaign </h1>
