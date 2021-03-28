@@ -5,7 +5,7 @@ import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import logo from "./TMB logo.png";
-import GameInfoButton from './GameInfoButton'
+import CampaignInfoButton from './CampaignInfoButton'
 import './CharInfo.css'
 import Character from './Character.js';
 import Game from './Game.js';
@@ -119,7 +119,7 @@ const App = () => {
             </Stack.Navigator>
         }
     </NavigationContainer>
-    <GameInfoButton />
+    <CampaignInfoButton />
     {/* <html>
         <body>
             <h1> Test Campaign </h1>
