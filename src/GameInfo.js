@@ -150,6 +150,7 @@ class GameInfo extends React.Component {
 				document.getElementById('CharInfoScars1').value = tmp.characters[0].scars;
 				// char 2
 				if (tmp.characters.length > 1) {
+					document.getElementById('CharInfo2').checked = true;
 					document.getElementById('CharInfoName2').value = tmp.characters[1].name;
 					document.getElementById('CharInfoBaseHP2').value = tmp.characters[1].stats_base.hp;
 					document.getElementById('CharInfoBaseDEX2').value = tmp.characters[1].stats_base.dex;
@@ -169,6 +170,7 @@ class GameInfo extends React.Component {
 				}
 				// char 3
 				if (tmp.characters.length > 2) {
+					document.getElementById('CharInfo3').checked = true;
 					document.getElementById('CharInfoName3').value = tmp.characters[2].name;
 					document.getElementById('CharInfoBaseHP3').value = tmp.characters[2].stats_base.hp;
 					document.getElementById('CharInfoBaseDEX3').value = tmp.characters[2].stats_base.dex;
@@ -188,6 +190,7 @@ class GameInfo extends React.Component {
 				}
 				// char 4
 				if (tmp.characters.length > 3) {
+					document.getElementById('CharInfo4').checked = true;
 					document.getElementById('CharInfoName4').value = tmp.characters[3].name;
 					document.getElementById('CharInfoBaseHP4').value = tmp.characters[3].stats_base.hp;
 					document.getElementById('CharInfoBaseDEX4').value = tmp.characters[3].stats_base.dex;
