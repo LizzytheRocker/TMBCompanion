@@ -12,7 +12,12 @@ import './CharInfo.css'
 import Character from './Character.js';
 import Game from './Game.js';
 import Campaign from './Campaign.js';
-
+import CharInfo from './CharInfo.js';
+import GameInfo from './GameInfo.js';
+import CampaignInfo from './CampaignInfo.js';
+import CharInfoLoad from './CharInfoLoad.js'
+import GameInfoLoad from './GameInfoLoad.js'
+import CampaignInfoLoad from './CampaignInfoLoad.js'
 
 const Button = styled.button`
     background-color: #00bcd4;
@@ -33,6 +38,15 @@ const Title = styled.div`
 const Space = styled.div`
     padding: 15px;
 `;
+
+const Col = styled.div`
+  padding: 0px 60px;
+`;
+const Row = styled.div`
+  font-size: 28px;
+  padding: 20px 0px;
+`;
+
 const MenuBottom = styled.div`
     padding: 200px;
 `;
@@ -53,18 +67,21 @@ function MainMenu({ navigation }) {
                 <img src={logo} className="photo " alt="Logo" />
 
                 <Space></Space>
-                <div>
-                <Button onClick={() => navigation.navigate("Character Screen")}>Create Character</Button>
-                </div>
+		<div>
+            	<Button onClick={() => navigation.navigate("Character Screen")}>Save Character</Button>
+		<Button onClick={() => navigation.navigate("Character Load Screen")}>Load Character</Button>
+		</div>
 
                 <Space></Space>
                 <div>
-                <Button onClick={() => navigation.navigate("Game Screen")}>Create Game</Button>
+                <Button onClick={() => navigation.navigate("Game Screen")}>Save Game</Button>
+		<Button onClick={() => navigation.navigate("Game Load Screen")}>Load Game</Button>
                 </div>
 
 		<Space></Space>
                 <div>
-                <Button onClick={() => navigation.navigate("Campaign Screen")}>Create Campaign</Button>
+                <Button onClick={() => navigation.navigate("Campaign Screen")}>Save Campaign</Button>
+		<Button onClick={() => navigation.navigate("Campaign Load Screen")}>Load Campaign</Button>
                 </div>
                 <Space></Space>
                 <Space></Space>
@@ -76,7 +93,16 @@ function MainMenu({ navigation }) {
 function CharacterScreen({ navigation }) {
     return (
 	<div>
-	<CharInfoButton />
+	<CharInfo />
+	<Space></Space>
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	</div>
+    );
+}
+function CharacterLoadScreen({ navigation }) {
+    return (
+	<div>
+	<CharInfoLoad />
 	<Space></Space>
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
 	</div>
@@ -86,7 +112,16 @@ function CharacterScreen({ navigation }) {
 function GameScreen({ navigation }) {
     return (
 	<div>
-	<GameInfoButton />
+	<GameInfo />
+	<Space></Space>
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	</div>
+    );
+}
+function GameLoadScreen({ navigation }) {
+    return (
+	<div>
+	<GameInfoLoad />
 	<Space></Space>
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
 	</div>
@@ -96,14 +131,21 @@ function GameScreen({ navigation }) {
 function CampaignScreen({ navigation }) {
     return (
 	<div>
-	<CampaignInfoButton />
+	<CampaignInfo />
 	<Space></Space>
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
 	</div>
     );
 }
-
-
+function CampaignLoadScreen({ navigation }) {
+    return (
+	<div>
+	<CampaignInfoLoad />
+	<Space></Space>
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	</div>
+    );
+}
 
 const App = () => {
     /* Example test campaign
@@ -146,13 +188,28 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <Stack.Screen
+                    name="Character Load Screen"
+                    component={CharacterLoadScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
                     name="Game Screen"
                     component={GameScreen}
                     options={{ headerShown: false }}
                 />
                 <Stack.Screen
+                    name="Game Load Screen"
+                    component={GameLoadScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
                     name="Campaign Screen"
                     component={CampaignScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Campaign Load Screen"
+                    component={CampaignLoadScreen}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
