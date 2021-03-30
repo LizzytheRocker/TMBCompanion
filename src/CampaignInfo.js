@@ -683,13 +683,6 @@ class CampaignInfo extends React.Component {
 						{`Download Json`}
 					</a>
 					<br /><br />
-					<input
-						type="file"
-						id="files"
-						name="files[]"
-						multiple
-						onChange={() => this.handleFileSelect(document.getElementById('files'))}
-					/>
 					<output id="list"></output>
 				</form>
 			</div>
