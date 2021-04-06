@@ -83,7 +83,7 @@ class Game {
         }
 
         if (!Number.isInteger(day_count)) {
-            throw new RangeError("Value must be an integer, value was " + String(day_count));
+            throw new TypeError("Value must be an integer, value was " + String(day_count));
         }
 
         if (day_count < 1) {
@@ -103,7 +103,7 @@ class Game {
         }
 
         if (!Number.isInteger(progress_points)) {
-            throw new RangeError("Value must be an integer, value was " + String(progress_points));
+            throw new TypeError("Value must be an integer, value was " + String(progress_points));
         }
 
         if (progress_points < 0) {

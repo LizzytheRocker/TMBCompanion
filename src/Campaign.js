@@ -144,7 +144,7 @@ class Campaign {
         }
 
         if (!Number.isInteger(starting_point)) {
-            throw new RangeError("Value must be an integer, value was " + String(starting_point));
+            throw new TypeError("Value must be an integer, value was " + String(starting_point));
         }
 
         if (starting_point < 0) {
@@ -164,7 +164,7 @@ class Campaign {
         }
 
         if (!Number.isInteger(required_progress)) {
-            throw new RangeError("Value must be an integer, value was " + String(required_progress));
+            throw new TypeError("Value must be an integer, value was " + String(required_progress));
         }
 
         if (required_progress < 0) {

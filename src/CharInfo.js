@@ -14,26 +14,42 @@ class CharInfo extends React.Component {
 	}
 
 	async submitChar() {
-		this.state.char.name = document.getElementById('CharInfoName').value;
-		var basehp = document.getElementById('CharInfoBaseHP').value;
-		var basedex = document.getElementById('CharInfoBaseDEX').value;
-		var baseatk = document.getElementById('CharInfoBaseATK').value;
-		var basedef = document.getElementById('CharInfoBaseDEF').value;
-		this.state.char.stats_base = { hp: Number(basehp), dex: Number(basedex), atk: Number(baseatk), df: Number(basedef) };
-		var dicehp = document.getElementById('CharInfoDiceHP').value;
-		var dicedex = document.getElementById('CharInfoDiceDEX').value;
-		var diceatk = document.getElementById('CharInfoDiceATK').value;
-		var dicedef = document.getElementById('CharInfoDiceDEF').value;
-		this.state.char.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
-		this.state.char.dice_acq = document.getElementById('CharInfoDiceAcq').value;
-		this.state.char.innate = Boolean(document.getElementById('CharInfoInnate').value);
-		this.state.char.curr_hp = Number(document.getElementById('CharInfoCurrHP').value);
-		this.state.char.loot = document.getElementById('CharInfoLoot').value;
-		this.state.char.player_notes = document.getElementById('CharInfoNotes').value;
-		this.state.char.locked_slots = document.getElementById('CharInfoLockedSlots').value;
-		this.state.char.scars = document.getElementById('CharInfoScars').value;
-		document.getElementById("Download").href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.state.char))}`;
-		document.getElementById("Download").download = this.state.char.name + '.json';
+		try {
+			if (document.getElementById('CharInfoName').value != "") {
+				this.state.char.name = document.getElementById('CharInfoName').value;
+            }
+			var basehp = document.getElementById('CharInfoBaseHP').value;
+			var basedex = document.getElementById('CharInfoBaseDEX').value;
+			var baseatk = document.getElementById('CharInfoBaseATK').value;
+			var basedef = document.getElementById('CharInfoBaseDEF').value;
+			this.state.char.stats_base = { hp: Number(basehp), dex: Number(basedex), atk: Number(baseatk), df: Number(basedef) };
+			var dicehp = document.getElementById('CharInfoDiceHP').value;
+			var dicedex = document.getElementById('CharInfoDiceDEX').value;
+			var diceatk = document.getElementById('CharInfoDiceATK').value;
+			var dicedef = document.getElementById('CharInfoDiceDEF').value;
+			this.state.char.stats_dice = { hp: Number(dicehp), dex: Number(dicedex), atk: Number(diceatk), df: Number(dicedef) };
+			this.state.char.dice_acq = document.getElementById('CharInfoDiceAcq').value;
+			this.state.char.innate = Boolean(document.getElementById('CharInfoInnate').value);
+			this.state.char.curr_hp = Number(document.getElementById('CharInfoCurrHP').value);
+			this.state.char.loot = document.getElementById('CharInfoLoot').value;
+			this.state.char.player_notes = document.getElementById('CharInfoNotes').value;
+			this.state.char.locked_slots = document.getElementById('CharInfoLockedSlots').value;
+			this.state.char.scars = document.getElementById('CharInfoScars').value;
+			document.getElementById("Download").href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.state.char))}`;
+			document.getElementById("Download").download = this.state.char.name + '.json';
+		}
+		catch(error){
+			if (error.name == "TypeError") {
+				alert("Make sure to only input whole numbers for your stats and current HP!");
+				document.getElementById("Download").removeAttribute("href");
+				document.getElementById("Download").removeAttribute("download");
+			}
+			if (error.name == "RangeError") {
+				alert("Make sure your base stats are at least 1, and your other stats and current HP are at least 0!");
+				document.getElementById("Download").removeAttribute("href");
+				document.getElementById("Download").removeAttribute("download");
+			}
+        }
 	}
 
 	async handleFileSelect(evt) {

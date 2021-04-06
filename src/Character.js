@@ -29,7 +29,7 @@ class Character {
     //The scars the character has (this should be a string)
     #scars;
 
-    constructor(name = "", stats_base = { hp: 1, dex: 1, atk: 1, df: 1 }, stats_dice = { hp: 0, dex: 0, atk: 0, df: 0 }, dice_acq = "", innate = false, curr_hp = 0, loot = "", player_notes = "", locked_slots = "", scars = "") {
+    constructor(name = "TMB_Character", stats_base = { hp: 1, dex: 1, atk: 1, df: 1 }, stats_dice = { hp: 0, dex: 0, atk: 0, df: 0 }, dice_acq = "", innate = false, curr_hp = 0, loot = "", player_notes = "", locked_slots = "", scars = "") {
         this.#name = name;
         this.#stats_base = stats_base;
         this.#stats_dice = stats_dice;
@@ -83,10 +83,10 @@ class Character {
         }
 
         if (!Number.isInteger(stats_base.hp)) {
-            throw new RangeError("Values must be integers, value of element hp was " + String(stats_base.hp));
+            throw new TypeError("Values must be integers, value of element hp was " + String(stats_base.hp));
         }
 
-        if (stats_base.hp < 0) {
+        if (stats_base.hp < 1) {
             throw new RangeError("Values must be at least 0, value of element hp was " + String(stats_base.hp));
         }
 
@@ -95,10 +95,10 @@ class Character {
         }
 
         if (!Number.isInteger(stats_base.dex)) {
-            throw new RangeError("Values must be integers, value of element dex was " + String(stats_base.dex));
+            throw new TypeError("Values must be integers, value of element dex was " + String(stats_base.dex));
         }
 
-        if (stats_base.dex < 0) {
+        if (stats_base.dex < 1) {
             throw new RangeError("Values must be at least 0, value of element dex was " + String(stats_base.dex));
         }
 
@@ -107,10 +107,10 @@ class Character {
         }
 
         if (!Number.isInteger(stats_base.atk)) {
-            throw new RangeError("Values must be integers, value of element atk was " + String(stats_base.atk));
+            throw new TypeError("Values must be integers, value of element atk was " + String(stats_base.atk));
         }
 
-        if (stats_base.atk < 0) {
+        if (stats_base.atk < 1) {
             throw new RangeError("Values must be at least 0, value of element atk was " + String(stats_base.atk));
         }
 
@@ -119,10 +119,10 @@ class Character {
         }
 
         if (!Number.isInteger(stats_base.df)) {
-            throw new RangeError("Values must be integers, value of element df was " + String(stats_base.df));
+            throw new TypeError("Values must be integers, value of element df was " + String(stats_base.df));
         }
 
-        if (stats_base.df < 0) {
+        if (stats_base.df < 1) {
             throw new RangeError("Values must be at least 0, value of element df was " + String(stats_base.df));
         }
 
@@ -143,7 +143,7 @@ class Character {
         }
 
         if (!Number.isInteger(stats_dice.hp)) {
-            throw new RangeError("Values must be integers, value of element hp was " + String(stats_dice.hp));
+            throw new TypeError("Values must be integers, value of element hp was " + String(stats_dice.hp));
         }
 
         if (stats_dice.hp < 0) {
@@ -155,7 +155,7 @@ class Character {
         }
 
         if (!Number.isInteger(stats_dice.dex)) {
-            throw new RangeError("Values must be integers, value of element dex was " + String(stats_dice.dex));
+            throw new TypeError("Values must be integers, value of element dex was " + String(stats_dice.dex));
         }
 
         if (stats_dice.dex < 0) {
@@ -167,7 +167,7 @@ class Character {
         }
 
         if (!Number.isInteger(stats_dice.atk)) {
-            throw new RangeError("Values must be integers, value of element atk was " + String(stats_dice.atk));
+            throw new TypeError("Values must be integers, value of element atk was " + String(stats_dice.atk));
         }
 
         if (stats_dice.atk < 0) {
@@ -179,7 +179,7 @@ class Character {
         }
 
         if (!Number.isInteger(stats_dice.df)) {
-            throw new RangeError("Values must be integers, value of element df was " + String(stats_dice.df));
+            throw new TypeError("Values must be integers, value of element df was " + String(stats_dice.df));
         }
 
         if (stats_dice.df < 0) {
