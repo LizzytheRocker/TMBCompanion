@@ -15,7 +15,9 @@ class CharInfoLoad extends React.Component {
 
 	async submitChar() {
 		try {
-			this.state.char.name = document.getElementById('CharInfoName').value;
+			if (document.getElementById('CharInfoName').value != "") {
+				this.state.char.name = document.getElementById('CharInfoName').value;
+			}
 			var basehp = document.getElementById('CharInfoBaseHP').value;
 			var basedex = document.getElementById('CharInfoBaseDEX').value;
 			var baseatk = document.getElementById('CharInfoBaseATK').value;
