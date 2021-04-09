@@ -4,8 +4,6 @@ import Character from './Character.js';
 // import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
 // <TextBoxComponent placeholder="Outlined" cssClass="e-outline" floatLabelType="Auto" />
 
-// <TextField id="standard-basic" label="Standard" />
-
 class CharInfoLoad extends React.Component {
 	constructor() {
 		super();
@@ -90,96 +88,145 @@ class CharInfoLoad extends React.Component {
 		return (
 			<div className='CharInfoLoad'>
 				<form>
-					<input
-						type="file"
-						id="files"
-						name="files[]"
-						multiple
-						onChange={() => this.handleFileSelect(document.getElementById('files'))}
-					/>
-					<h2>Character Name</h2>
-					<input
-						id='CharInfoName'
-						type='text'
-					/>
-					<h2>Base Stats:</h2>
-					<p>HP</p>
-					<input
-						id='CharInfoBaseHP'
-						type='number'
-					/>
-					<p>DEX</p>
-					<input
-						id='CharInfoBaseDEX'
-						type='number'
-					/>
-					<p>ATK</p>
-					<input
-						id='CharInfoBaseATK'
-						type='number'
-					/>
-					<p>DEF</p>
-					<input
-						id='CharInfoBaseDEF'
-						type='number'
-					/>
-					<h2>Stat Increases:</h2>
-					<p>HP</p>
-					<input
-						id='CharInfoDiceHP'
-						type='number'
-					/>
-					<p>DEX</p>
-					<input
-						id='CharInfoDiceDEX'
-						type='number'
-					/>
-					<p>ATK</p>
-					<input
-						id='CharInfoDiceATK'
-						type='number'
-					/>
-					<p>DEF</p>
-					<input
-						id='CharInfoDiceDEF'
-						type='number'
-					/>
-					<h2>Skill Dice</h2>
-					<input
-						id='CharInfoDiceAcq'
-						type='text'
-					/>
-					<h2>Innate +1</h2>
-					<input
-						id='CharInfoInnate'
-						type='checkbox'
-					/>
-					<h2>Current HP</h2>
-					<input
-						id='CharInfoCurrHP'
-						type='number'
-					/>
-					<h2>Loot</h2>
-					<input
-						id='CharInfoLoot'
-						type='text'
-					/>
-					<h2>Notes</h2>
-					<p>Any extra notes, eg skill die that needs a specific value remembered</p>
-					<input
-						id='CharInfoNotes'
-						type='text'
-					/>
-					<h2>Locked Slots</h2>
-					<input
-						id='CharInfoLockedSlots'
-						type='text'
-					/>
-					<h2>Scars</h2>
-					<input
-						id='CharInfoScars'
-						type='text'
-					/>
+					<div class="row">
+						<div class="row">
+							<div class="col">
+							</div>
+							<div class="col">
+								<h2>Character Name:</h2>
+								<input
+									id='CharInfoName'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Character File:</h2>
+								<input
+									type="file"
+									id="files"
+									name="files[]"
+									multiple
+									onChange={() => this.handleFileSelect(document.getElementById('files'))}
+								/>
+							</div>
+							<div class="col">
+							</div>
+						</div>
+						<div class="row">
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Base Stats:</h2>
+							</div>
+							<div class="col">
+								<h2>Stat Increases:</h2>
+							</div>
+						</div>
+
+    						<div class="col">
+							<p>HP</p>
+							<input
+								id='CharInfoBaseHP'
+								type='number'
+							/>
+							<p>DEX</p>
+							<input
+								id='CharInfoBaseDEX'
+								type='number'
+							/>
+    						</div>
+    						<div class="col">
+      							<p>ATK</p>
+							<input
+								id='CharInfoBaseATK'
+								type='number'
+							/>
+							<p>DEF</p>
+							<input
+								id='CharInfoBaseDEF'
+								type='number'
+							/>
+    						</div>
+						<div class="col">
+							<p>HP</p>
+							<input
+								id='CharInfoDiceHP'
+								type='number'
+							/>
+							<p>DEX</p>
+							<input
+								id='CharInfoDiceDEX'
+								type='number'
+							/>
+    						</div>
+						<div class="col">
+      							<p>ATK</p>
+							<input
+								id='CharInfoDiceATK'
+								type='number'
+							/>
+							<p>DEF</p>
+							<input
+								id='CharInfoDiceDEF'
+								type='number'
+							/>
+    						</div>
+						<div class="row">
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Skill Dice</h2>
+								<input
+									id='CharInfoDiceAcq'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Current HP</h2>
+								<input
+									id='CharInfoCurrHP'
+									type='number'
+								/>
+							</div>
+							<div class="col">
+								<h2>Loot</h2>
+								<input
+									id='CharInfoLoot'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Innate +1</h2>
+								<input
+									id='CharInfoInnate'
+									type='checkbox'
+								/>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Notes</h2>
+								<input
+									id='CharInfoNotes'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Locked Slots</h2>
+								<input
+									id='CharInfoLockedSlots'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Scars</h2>
+								<input
+									id='CharInfoScars'
+									type='text'
+								/>
+							</div>
+						</div>
+  					</div>
 					<br /><br />
 					<a
 						type="button"

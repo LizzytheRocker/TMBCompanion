@@ -2,6 +2,11 @@ import React from 'react'
 import Game from './Game.js';
 // import CharInfoButton from './CharInfoButton'
 import Character from './Character.js';
+import styled from "styled-components";
+
+const Space = styled.div`
+    padding: 23px;
+`;
 
 class GameInfoLoad extends React.Component {
 	constructor() {
@@ -316,400 +321,631 @@ class GameInfoLoad extends React.Component {
 		return (
 			<div className='GameInfo'>
 				<form>
-					<input
-						type="file"
-						id="files"
-						name="files[]"
-						multiple
-						onChange={() => this.handleFileSelect(document.getElementById('files'))}
-					/>
-					<h2>Game Save Name</h2>
-					<input
-						id='GameInfoName'
-						type='text'
-					/>
-					<h2>Tyrant Name</h2>
-					<input
-						id='GameInfoTyrant'
-						type='text'
-					/>
-					<h2>Day Count</h2>
-					<input
-						id='GameInfoDayCount'
-						type='number'
-					/>
-					<h2>Progress Points</h2>
-					<input
-						id='GameInfoProgPoints'
-						type='number'
-					/>
-					<h2>Encounters Completed</h2>
-					<input
-						id='GameInfoEncountersCompleted'
-						type='text'
-					/>
-					<h2>Encounters Remaining</h2>
-					<input
-						id='GameInfoEncountersRemaining'
-						type='text'
-					/>
-					<h2>Loot Used</h2>
-					<input
-						id='GameInfoLootUsed'
-						type='text'
-					/>
-					<h1>Character 1</h1>
-					<p>Must have at least one character</p>
-					<h2>Character Name</h2>
-					<input
-						id='CharInfoName1'
-						type='text'
-					/>
-					<h2>Base Stats:</h2>
-					<p>HP</p>
-					<input
-						id='CharInfoBaseHP1'
-						type='number'
-					/>
-					<p>DEX</p>
-					<input
-						id='CharInfoBaseDEX1'
-						type='number'
-					/>
-					<p>ATK</p>
-					<input
-						id='CharInfoBaseATK1'
-						type='number'
-					/>
-					<p>DEF</p>
-					<input
-						id='CharInfoBaseDEF1'
-						type='number'
-					/>
-					<h2>Stat Increases:</h2>
-					<p>HP</p>
-					<input
-						id='CharInfoDiceHP1'
-						type='number'
-					/>
-					<p>DEX</p>
-					<input
-						id='CharInfoDiceDEX1'
-						type='number'
-					/>
-					<p>ATK</p>
-					<input
-						id='CharInfoDiceATK1'
-						type='number'
-					/>
-					<p>DEF</p>
-					<input
-						id='CharInfoDiceDEF1'
-						type='number'
-					/>
-					<h2>Skill Dice</h2>
-					<input
-						id='CharInfoDiceAcq1'
-						type='text'
-					/>
-					<h2>Innate +1</h2>
-					<input
-						id='CharInfoInnate1'
-						type='checkbox'
-					/>
-					<h2>Current HP</h2>
-					<input
-						id='CharInfoCurrHP1'
-						type='number'
-					/>
-					<h2>Loot</h2>
-					<input
-						id='CharInfoLoot1'
-						type='text'
-					/>
-					<h2>Notes</h2>
-					<p>Any extra notes, eg skill die that needs a specific value remembered</p>
-					<input
-						id='CharInfoNotes1'
-						type='text'
-					/>
-					<h2>Locked Slots</h2>
-					<input
-						id='CharInfoLockedSlots1'
-						type='text'
-					/>
-					<h2>Scars</h2>
-					<input
-						id='CharInfoScars1'
-						type='text'
-					/>
-					<h2>Do you have a second character?</h2>
-					<input
-						id='CharInfo2'
-						type='checkbox'
-					/>
-					<h1>Character 2</h1>
-					<h2>Character Name</h2>
-					<input
-						id='CharInfoName2'
-						type='text'
-					/>
-					<h2>Base Stats:</h2>
-					<p>HP</p>
-					<input
-						id='CharInfoBaseHP2'
-						type='number'
-					/>
-					<p>DEX</p>
-					<input
-						id='CharInfoBaseDEX2'
-						type='number'
-					/>
-					<p>ATK</p>
-					<input
-						id='CharInfoBaseATK2'
-						type='number'
-					/>
-					<p>DEF</p>
-					<input
-						id='CharInfoBaseDEF2'
-						type='number'
-					/>
-					<h2>Stat Increases:</h2>
-					<p>HP</p>
-					<input
-						id='CharInfoDiceHP2'
-						type='number'
-					/>
-					<p>DEX</p>
-					<input
-						id='CharInfoDiceDEX2'
-						type='number'
-					/>
-					<p>ATK</p>
-					<input
-						id='CharInfoDiceATK2'
-						type='number'
-					/>
-					<p>DEF</p>
-					<input
-						id='CharInfoDiceDEF2'
-						type='number'
-					/>
-					<h2>Skill Dice</h2>
-					<input
-						id='CharInfoDiceAcq2'
-						type='text'
-					/>
-					<h2>Innate +1</h2>
-					<input
-						id='CharInfoInnate2'
-						type='checkbox'
-					/>
-					<h2>Current HP</h2>
-					<input
-						id='CharInfoCurrHP2'
-						type='number'
-					/>
-					<h2>Loot</h2>
-					<input
-						id='CharInfoLoot2'
-						type='text'
-					/>
-					<h2>Notes</h2>
-					<p>Any extra notes, eg skill die that needs a specific value remembered</p>
-					<input
-						id='CharInfoNotes2'
-						type='text'
-					/>
-					<h2>Locked Slots</h2>
-					<input
-						id='CharInfoLockedSlots2'
-						type='text'
-					/>
-					<h2>Scars</h2>
-					<input
-						id='CharInfoScars2'
-						type='text'
-					/>
-					<h2>Do you have a third character?</h2>
-					<input
-						id='CharInfo3'
-						type='checkbox'
-					/>
-					<h1>Character 3</h1>
-					<h2>Character Name</h2>
-					<input
-						id='CharInfoName3'
-						type='text'
-					/>
-					<h2>Base Stats:</h2>
-					<p>HP</p>
-					<input
-						id='CharInfoBaseHP3'
-						type='number'
-					/>
-					<p>DEX</p>
-					<input
-						id='CharInfoBaseDEX3'
-						type='number'
-					/>
-					<p>ATK</p>
-					<input
-						id='CharInfoBaseATK3'
-						type='number'
-					/>
-					<p>DEF</p>
-					<input
-						id='CharInfoBaseDEF3'
-						type='number'
-					/>
-					<h2>Stat Increases:</h2>
-					<p>HP</p>
-					<input
-						id='CharInfoDiceHP3'
-						type='number'
-					/>
-					<p>DEX</p>
-					<input
-						id='CharInfoDiceDEX3'
-						type='number'
-					/>
-					<p>ATK</p>
-					<input
-						id='CharInfoDiceATK3'
-						type='number'
-					/>
-					<p>DEF</p>
-					<input
-						id='CharInfoDiceDEF3'
-						type='number'
-					/>
-					<h2>Skill Dice</h2>
-					<input
-						id='CharInfoDiceAcq3'
-						type='text'
-					/>
-					<h2>Innate +1</h2>
-					<input
-						id='CharInfoInnate3'
-						type='checkbox'
-					/>
-					<h2>Current HP</h2>
-					<input
-						id='CharInfoCurrHP3'
-						type='number'
-					/>
-					<h2>Loot</h2>
-					<input
-						id='CharInfoLoot3'
-						type='text'
-					/>
-					<h2>Notes</h2>
-					<p>Any extra notes, eg skill die that needs a specific value remembered</p>
-					<input
-						id='CharInfoNotes3'
-						type='text'
-					/>
-					<h2>Locked Slots</h2>
-					<input
-						id='CharInfoLockedSlots3'
-						type='text'
-					/>
-					<h2>Scars</h2>
-					<input
-						id='CharInfoScars3'
-						type='text'
-					/>
-					<h2>Do you have a fourth character?</h2>
-					<input
-						id='CharInfo4'
-						type='checkbox'
-					/>
-					<h1>Character 4</h1>
-					<h2>Character Name</h2>
-					<input
-						id='CharInfoName4'
-						type='text'
-					/>
-					<h2>Base Stats:</h2>
-					<p>HP</p>
-					<input
-						id='CharInfoBaseHP4'
-						type='number'
-					/>
-					<p>DEX</p>
-					<input
-						id='CharInfoBaseDEX4'
-						type='number'
-					/>
-					<p>ATK</p>
-					<input
-						id='CharInfoBaseATK4'
-						type='number'
-					/>
-					<p>DEF</p>
-					<input
-						id='CharInfoBaseDEF4'
-						type='number'
-					/>
-					<h2>Stat Increases:</h2>
-					<p>HP</p>
-					<input
-						id='CharInfoDiceHP4'
-						type='number'
-					/>
-					<p>DEX</p>
-					<input
-						id='CharInfoDiceDEX4'
-						type='number'
-					/>
-					<p>ATK</p>
-					<input
-						id='CharInfoDiceATK4'
-						type='number'
-					/>
-					<p>DEF</p>
-					<input
-						id='CharInfoDiceDEF4'
-						type='number'
-					/>
-					<h2>Skill Dice</h2>
-					<input
-						id='CharInfoDiceAcq4'
-						type='text'
-					/>
-					<h2>Innate +1</h2>
-					<input
-						id='CharInfoInnate4'
-						type='checkbox'
-					/>
-					<h2>Current HP</h2>
-					<input
-						id='CharInfoCurrHP4'
-						type='number'
-					/>
-					<h2>Loot</h2>
-					<input
-						id='CharInfoLoot4'
-						type='text'
-					/>
-					<h2>Notes</h2>
-					<p>Any extra notes, eg skill die that needs a specific value remembered</p>
-					<input
-						id='CharInfoNotes4'
-						type='text'
-					/>
-					<h2>Locked Slots</h2>
-					<input
-						id='CharInfoLockedSlots4'
-						type='text'
-					/>
-					<h2>Scars</h2>
-					<input
-						id='CharInfoScars4'
-						type='text'
-					/>
+					<div class="row">
+						<div class="row">
+							<div class="col">
+							</div>
+							<div class="col">
+								<h2>Game Save Name</h2>
+								<input
+									id='GameInfoName'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Game File:</h2>
+								<input
+									type="file"
+									id="files"
+									name="files[]"
+									multiple
+									onChange={() => this.handleFileSelect(document.getElementById('files'))}
+								/>
+							</div>
+							<div class="col">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Tyrant Name</h2>
+								<input
+									id='GameInfoTyrant'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Day Count</h2>
+								<input
+									id='GameInfoDayCount'
+									type='number'
+								/>
+							</div>
+							<div class="col">
+								<h2>Progress Points</h2>
+								<input
+									id='GameInfoProgPoints'
+									type='number'
+								/>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col">
+								<h2>Encounters Completed</h2>
+								<input
+									id='GameInfoEncountersCompleted'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Encounters Remaining</h2>
+								<input
+									id='GameInfoEncountersRemaining'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Loot Used</h2>
+								<input
+									id='GameInfoLootUsed'
+									type='text'
+								/>
+							</div>
+						</div>
+
+						<Space/>
+						<Space/>
+						<div class="row">
+							<div class="col">
+							</div>
+							<div class="col">
+								<h2>Character 1 Name</h2>
+								<p>Must have at least one character</p>
+								<input
+									id='CharInfoName1'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Base Stats:</h2>
+							</div>
+							<div class="col">
+								<h2>Stat Increases:</h2>
+							</div>
+						</div>
+
+    						<div class="col">
+							<p>HP</p>
+							<input
+								id='CharInfoBaseHP1'
+								type='number'
+							/>
+							<p>DEX</p>
+							<input
+								id='CharInfoBaseDEX1'
+								type='number'
+							/>
+    						</div>
+    						<div class="col">
+      							<p>ATK</p>
+							<input
+								id='CharInfoBaseATK1'
+								type='number'
+							/>
+							<p>DEF</p>
+							<input
+								id='CharInfoBaseDEF1'
+								type='number'
+							/>
+    						</div>
+						<div class="col">
+							<p>HP</p>
+							<input
+								id='CharInfoDiceHP1'
+								type='number'
+							/>
+							<p>DEX</p>
+							<input
+								id='CharInfoDiceDEX1'
+								type='number'
+							/>
+    						</div>
+						<div class="col">
+      							<p>ATK</p>
+							<input
+								id='CharInfoDiceATK1'
+								type='number'
+							/>
+							<p>DEF</p>
+							<input
+								id='CharInfoDiceDEF1'
+								type='number'
+							/>
+    						</div>
+						<div class="row">
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Skill Dice</h2>
+								<input
+									id='CharInfoDiceAcq1'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Current HP</h2>
+								<input
+									id='CharInfoCurrHP1'
+									type='number'
+								/>
+							</div>
+							<div class="col">
+								<h2>Loot</h2>
+								<input
+									id='CharInfoLoot1'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Innate +1</h2>
+								<input
+									id='CharInfoInnate1'
+									type='checkbox'
+								/>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Notes</h2>
+								<input
+									id='CharInfoNotes1'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Locked Slots</h2>
+								<input
+									id='CharInfoLockedSlots1'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Scars</h2>
+								<input
+									id='CharInfoScars1'
+									type='text'
+								/>
+							</div>
+						</div>
+
+						<Space/>
+						<Space/>
+						<div class="row">
+							<div class="col">
+								<h2>Do you have a second character?</h2>
+								<input
+									id='CharInfo2'
+									type='checkbox'
+								/>
+							</div>
+							<div class="col">
+							</div>
+							<div class="col">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+							</div>
+							<div class="col">
+								<h2>Character 2 Name</h2>
+								<input
+									id='CharInfoName2'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Base Stats:</h2>
+							</div>
+							<div class="col">
+								<h2>Stat Increases:</h2>
+							</div>
+						</div>
+
+    						<div class="col">
+							<p>HP</p>
+							<input
+								id='CharInfoBaseHP2'
+								type='number'
+							/>
+							<p>DEX</p>
+							<input
+								id='CharInfoBaseDEX2'
+								type='number'
+							/>
+    						</div>
+    						<div class="col">
+      							<p>ATK</p>
+							<input
+								id='CharInfoBaseATK2'
+								type='number'
+							/>
+							<p>DEF</p>
+							<input
+								id='CharInfoBaseDEF2'
+								type='number'
+							/>
+    						</div>
+						<div class="col">
+							<p>HP</p>
+							<input
+								id='CharInfoDiceHP2'
+								type='number'
+							/>
+							<p>DEX</p>
+							<input
+								id='CharInfoDiceDEX2'
+								type='number'
+							/>
+    						</div>
+						<div class="col">
+      							<p>ATK</p>
+							<input
+								id='CharInfoDiceATK2'
+								type='number'
+							/>
+							<p>DEF</p>
+							<input
+								id='CharInfoDiceDEF2'
+								type='number'
+							/>
+    						</div>
+						<div class="row">
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Skill Dice</h2>
+								<input
+									id='CharInfoDiceAcq2'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Current HP</h2>
+								<input
+									id='CharInfoCurrHP2'
+									type='number'
+								/>
+							</div>
+							<div class="col">
+								<h2>Loot</h2>
+								<input
+									id='CharInfoLoot2'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Innate +1</h2>
+								<input
+									id='CharInfoInnate2'
+									type='checkbox'
+								/>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Notes</h2>
+								<input
+									id='CharInfoNotes2'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Locked Slots</h2>
+								<input
+									id='CharInfoLockedSlots2'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Scars</h2>
+								<input
+									id='CharInfoScars2'
+									type='text'
+								/>
+							</div>
+						</div>
+
+						<Space/>
+						<Space/>
+						<div class="row">
+							<div class="col">
+								<h2>Do you have a third character?</h2>
+								<input
+									id='CharInfo3'
+									type='checkbox'
+								/>
+							</div>
+							<div class="col">
+							</div>
+							<div class="col">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+							</div>
+							<div class="col">
+								<h2>Character 3 Name</h2>
+								<input
+									id='CharInfoName3'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Base Stats:</h2>
+							</div>
+							<div class="col">
+								<h2>Stat Increases:</h2>
+							</div>
+						</div>
+
+    						<div class="col">
+							<p>HP</p>
+							<input
+								id='CharInfoBaseHP3'
+								type='number'
+							/>
+							<p>DEX</p>
+							<input
+								id='CharInfoBaseDEX3'
+								type='number'
+							/>
+    						</div>
+    						<div class="col">
+      							<p>ATK</p>
+							<input
+								id='CharInfoBaseATK3'
+								type='number'
+							/>
+							<p>DEF</p>
+							<input
+								id='CharInfoBaseDEF3'
+								type='number'
+							/>
+    						</div>
+						<div class="col">
+							<p>HP</p>
+							<input
+								id='CharInfoDiceHP3'
+								type='number'
+							/>
+							<p>DEX</p>
+							<input
+								id='CharInfoDiceDEX3'
+								type='number'
+							/>
+    						</div>
+						<div class="col">
+      							<p>ATK</p>
+							<input
+								id='CharInfoDiceATK3'
+								type='number'
+							/>
+							<p>DEF</p>
+							<input
+								id='CharInfoDiceDEF3'
+								type='number'
+							/>
+    						</div>
+						<div class="row">
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Skill Dice</h2>
+								<input
+									id='CharInfoDiceAcq3'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Current HP</h2>
+								<input
+									id='CharInfoCurrHP3'
+									type='number'
+								/>
+							</div>
+							<div class="col">
+								<h2>Loot</h2>
+								<input
+									id='CharInfoLoot3'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Innate +1</h2>
+								<input
+									id='CharInfoInnate3'
+									type='checkbox'
+								/>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Notes</h2>
+								<input
+									id='CharInfoNotes3'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Locked Slots</h2>
+								<input
+									id='CharInfoLockedSlots3'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Scars</h2>
+								<input
+									id='CharInfoScars3'
+									type='text'
+								/>
+							</div>
+						</div>
+
+						<Space/>
+						<Space/>
+						<div class="row">
+							<div class="col">
+								<h2>Do you have a fourth character?</h2>
+								<input
+									id='CharInfo4'
+									type='checkbox'
+								/>
+							</div>
+							<div class="col">
+							</div>
+							<div class="col">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+							</div>
+							<div class="col">
+								<h2>Character 4 Name</h2>
+								<input
+									id='CharInfoName4'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Base Stats:</h2>
+							</div>
+							<div class="col">
+								<h2>Stat Increases:</h2>
+							</div>
+						</div>
+
+    						<div class="col">
+							<p>HP</p>
+							<input
+								id='CharInfoBaseHP4'
+								type='number'
+							/>
+							<p>DEX</p>
+							<input
+								id='CharInfoBaseDEX4'
+								type='number'
+							/>
+    						</div>
+    						<div class="col">
+      							<p>ATK</p>
+							<input
+								id='CharInfoBaseATK4'
+								type='number'
+							/>
+							<p>DEF</p>
+							<input
+								id='CharInfoBaseDEF4'
+								type='number'
+							/>
+    						</div>
+						<div class="col">
+							<p>HP</p>
+							<input
+								id='CharInfoDiceHP4'
+								type='number'
+							/>
+							<p>DEX</p>
+							<input
+								id='CharInfoDiceDEX4'
+								type='number'
+							/>
+    						</div>
+						<div class="col">
+      							<p>ATK</p>
+							<input
+								id='CharInfoDiceATK4'
+								type='number'
+							/>
+							<p>DEF</p>
+							<input
+								id='CharInfoDiceDEF4'
+								type='number'
+							/>
+    						</div>
+						<div class="row">
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Skill Dice</h2>
+								<input
+									id='CharInfoDiceAcq4'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Current HP</h2>
+								<input
+									id='CharInfoCurrHP4'
+									type='number'
+								/>
+							</div>
+							<div class="col">
+								<h2>Loot</h2>
+								<input
+									id='CharInfoLoot4'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Innate +1</h2>
+								<input
+									id='CharInfoInnate4'
+									type='checkbox'
+								/>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<h2>Notes</h2>
+								<input
+									id='CharInfoNotes4'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Locked Slots</h2>
+								<input
+									id='CharInfoLockedSlots4'
+									type='text'
+								/>
+							</div>
+							<div class="col">
+								<h2>Scars</h2>
+								<input
+									id='CharInfoScars4'
+									type='text'
+								/>
+							</div>
+						</div>
+
+					</div>
 					<br /><br />
 					<a
 						type="button"

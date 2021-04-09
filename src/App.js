@@ -18,7 +18,7 @@ const Button = styled.button`
         background-color: #0097a7;
     }
     border-radius: 7px;
-    padding: 10px 20px;
+    padding: 0px 10px;
     font-size: 40px;
     outline: 0;
     box-shadow: 0px 5px 5px #28467a;
@@ -41,7 +41,11 @@ const Row = styled.div`
 `;
 
 const MenuBottom = styled.div`
-    padding: 200px;
+    padding: 24px;
+`;
+
+const CharBottom = styled.div`
+    padding: 54px;
 `;
 
 var rootStyle = {
@@ -76,9 +80,10 @@ function MainMenu({ navigation }) {
                 <Button onClick={() => navigation.navigate("Campaign Screen")}>Save Campaign</Button>
 		<Button onClick={() => navigation.navigate("Campaign Load Screen")}>Load Campaign</Button>
                 </div>
-                <Space></Space>
+		<Space></Space>
             </div>
             <Button onClick={() => window.close()}>Done</Button>
+	    <MenuBottom/>
         </View>
     );
 }
@@ -89,6 +94,7 @@ function CharacterScreen({ navigation }) {
 	<CharInfo />
 	<Space></Space>
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<CharBottom/>
 	</div>
     );
 }
@@ -98,6 +104,7 @@ function CharacterLoadScreen({ navigation }) {
 	<CharInfoLoad />
 	<Space></Space>
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<CharBottom/>
 	</div>
     );
 }
@@ -142,7 +149,14 @@ function CampaignLoadScreen({ navigation }) {
 
 const App = () => {
     return (
-	<>
+    <html lang="en">
+    <head>
+	<meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"/>
+    </head>
+    <body>
     <NavigationContainer>
         {
             <Stack.Navigator
@@ -190,7 +204,9 @@ const App = () => {
             </Stack.Navigator>
         }
     </NavigationContainer>
-	</>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    </body>
+    </html>
     );
 }
 
