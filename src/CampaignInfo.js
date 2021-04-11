@@ -256,7 +256,7 @@ class CampaignInfo extends React.Component {
 			this.state.campaign.game = gameTemp;
 		}
 		document.getElementById("Download").href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.state.campaign))}`;
-		document.getElementById("Download").download = this.state.campaign.save_name + '.json';
+		document.getElementById("Download").download = 'campaign-' + this.state.campaign.save_name + '.json';
 	}
 
 	async handleFileSelect(evt) {

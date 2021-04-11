@@ -34,7 +34,7 @@ class CharInfoLoad extends React.Component {
 			this.state.char.locked_slots = document.getElementById('CharInfoLockedSlots').value;
 			this.state.char.scars = document.getElementById('CharInfoScars').value;
 			document.getElementById("Download").href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.state.char))}`;
-			document.getElementById("Download").download = this.state.char.name + '.json';
+			document.getElementById("Download").download = 'char-' + this.state.char.name + '.json';
 		}
 		catch (error) {
 			if (error.name == "TypeError") {

@@ -212,7 +212,7 @@ class GameInfoLoad extends React.Component {
 			}
 		}
 		document.getElementById("Download").href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.state.game))}`;
-		document.getElementById("Download").download = this.state.game.save_name + '.json';
+		document.getElementById("Download").download = 'game-' + this.state.game.save_name + '.json';
 	}
 
 	async handleFileSelect(evt) {
