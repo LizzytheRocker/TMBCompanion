@@ -278,8 +278,8 @@ class CampaignInfoLoad extends React.Component {
 			var fname = f.name;
 			var ftype = fname.split("-", 1);
 			try {
-				if (ftype != "char" && ftype != "game" && ftype != "campaign") {
-					throw "Incorrect file type (must start with 'char-' or 'game-' or 'campaign')";
+				if (ftype != "character" && ftype != "game" && ftype != "campaign") {
+					throw "Incorrect file type (must start with 'character-' or 'game-' or 'campaign')";
 				}
 			}
 			catch(err) {
@@ -298,7 +298,7 @@ class CampaignInfoLoad extends React.Component {
 					alert("Invalid json object");
 					return;
 				}
-				if (ftype == "char") {
+				if (ftype == "character") {
 					document.getElementById('CharInfoName1').value = tmp.name;
 					document.getElementById('CharInfoBaseHP1').value = tmp.stats_base.hp;
 					document.getElementById('CharInfoBaseDEX1').value = tmp.stats_base.dex;

@@ -62,8 +62,8 @@ class CharInfoLoad extends React.Component {
 			try {
 				var fname = f.name;
 				var ftype = fname.split("-", 1);
-				if (ftype != "char") {
-					throw "Incorrect file type (must start with 'char-'";
+				if (ftype != "character") {
+					throw "Incorrect file type (must start with 'character-')";
 				}
 			}
 			catch(err) {

@@ -234,8 +234,8 @@ class GameInfoLoad extends React.Component {
 			var fname = f.name;
 			var ftype = fname.split("-", 1);
 			try {
-				if (ftype != "char" && ftype != "game") {
-					throw "Incorrect file type (must start with 'char-' or 'game-')";
+				if (ftype != "character" && ftype != "game") {
+					throw "Incorrect file type (must start with 'character-' or 'game-')";
 				}
 			}
 			catch(err) {
@@ -254,7 +254,7 @@ class GameInfoLoad extends React.Component {
 					alert("Invalid json object");
 					return;
 				}
-				if (ftype == "char") {
+				if (ftype == "character") {
 					document.getElementById('CharInfoName1').value = tmp.name;
 					document.getElementById('CharInfoBaseHP1').value = tmp.stats_base.hp;
 					document.getElementById('CharInfoBaseDEX1').value = tmp.stats_base.dex;
@@ -271,7 +271,7 @@ class GameInfoLoad extends React.Component {
 					document.getElementById('CharInfoNotes1').value = tmp.player_notes;
 					document.getElementById('CharInfoLockedSlots1').value = tmp.locked_slots;
 					document.getElementById('CharInfoScars1').value = tmp.scars;
-					} else {
+				} else {
 					document.getElementById('GameInfoName').value = tmp.save_name;
 					document.getElementById('GameInfoTyrant').value = tmp.tyrant;
 					document.getElementById('GameInfoDayCount').value = tmp.day_count;
