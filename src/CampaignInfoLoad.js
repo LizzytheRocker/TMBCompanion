@@ -15,8 +15,18 @@ class CampaignInfoLoad extends React.Component {
 	}
 
 	async submitCampaign() {
-		if (document.getElementById('CampaignInfoName').value != "") {
-			this.state.campaign.save_name = document.getElementById('CampaignInfoName').value;
+		try {
+			if (document.getElementById('CampaignInfoName').value != "") {
+				this.state.campaign.save_name = document.getElementById('CampaignInfoName').value;
+			} else {
+				throw "Must have a name for the campaign";
+			}
+		}
+		catch(err) {
+			alert("Error: " + err);
+			document.getElementById("Download").removeAttribute("href");
+			document.getElementById("Download").removeAttribute("download");
+			return;
 		}
 		this.state.campaign.adventure_effect = document.getElementById('CampaignInfoAdventureEffect').value;
 		this.state.campaign.boons = document.getElementById('CampaignInfoBoons').value;
