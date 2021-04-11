@@ -56,52 +56,6 @@ class CharInfo extends React.Component {
 		}
 	}
 
-	async handleFileSelect(evt) {
-    var files = evt.files; // FileList object
-
-    // files is a FileList of File objects. List some properties.
-    var output = [];
-		var reader = new FileReader();
-    for (var i = 0, f; f = files[i]; i++) {
-			try {
-				var fname = f.name;
-				var ftype = fname.split("-", 1);
-				if (ftype != "char") {
-					throw "Incorrect file type (must start with 'char-'";
-				}
-			}
-			catch(err) {
-				alert("Error: " + err);
-				return;
-			}
-      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                  f.size, ' bytes, last modified: ',
-                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                  '</li>');
-			reader.onload = (function(theFile) {
-				var tmp = JSON.parse(theFile.target.result);
-				document.getElementById('CharInfoName').value = tmp.name;
-				document.getElementById('CharInfoBaseHP').value = tmp.stats_base.hp;
-				document.getElementById('CharInfoBaseDEX').value = tmp.stats_base.dex;
-				document.getElementById('CharInfoBaseATK').value = tmp.stats_base.atk;
-				document.getElementById('CharInfoBaseDEF').value = tmp.stats_base.df;
-				document.getElementById('CharInfoDiceHP').value = tmp.stats_dice.hp;
-				document.getElementById('CharInfoDiceDEX').value = tmp.stats_dice.dex;
-				document.getElementById('CharInfoDiceATK').value = tmp.stats_dice.atk;
-				document.getElementById('CharInfoDiceDEF').value = tmp.stats_dice.df;
-				document.getElementById('CharInfoDiceAcq').value = tmp.dice_acq;
-				document.getElementById('CharInfoInnate').checked = Boolean(tmp.innate);
-				document.getElementById('CharInfoCurrHP').value = tmp.curr_hp;
-				document.getElementById('CharInfoLoot').value = tmp.loot;
-				document.getElementById('CharInfoNotes').value = tmp.player_notes;
-				document.getElementById('CharInfoLockedSlots').value = tmp.locked_slots;
-				document.getElementById('CharInfoScars').value = tmp.scars;
-			})
-			reader.readAsText(f);
-    }
-    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
-  }
-
 	render() {
 		return (
 			<div className='CharInfo'>
