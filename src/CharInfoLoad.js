@@ -59,12 +59,29 @@ class CharInfoLoad extends React.Component {
     var output = [];
 		var reader = new FileReader();
     for (var i = 0, f; f = files[i]; i++) {
+			try {
+				var fname = f.name;
+				var ftype = fname.split("-", 1);
+				if (ftype != "char") {
+					throw "Incorrect file type (must start with 'char-'";
+				}
+			}
+			catch(err) {
+				alert("Error: " + err);
+				return;
+			}
       output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
                   f.size, ' bytes, last modified: ',
                   f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
                   '</li>');
 			reader.onload = (function(theFile) {
-				var tmp = JSON.parse(theFile.target.result);
+				try {
+					var tmp = JSON.parse(theFile.target.result);
+				}
+				catch(err) {
+					alert("Invalid json object");
+					return;
+				}
 				document.getElementById('CharInfoName').value = tmp.name;
 				document.getElementById('CharInfoBaseHP').value = tmp.stats_base.hp;
 				document.getElementById('CharInfoBaseDEX').value = tmp.stats_base.dex;
