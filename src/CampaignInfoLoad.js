@@ -264,98 +264,48 @@ class CampaignInfoLoad extends React.Component {
     // files is a FileList of File objects. List some properties.
     var output = [];
 		var reader = new FileReader();
+		var fname = f.name;
+		var ftype = fname.split("-", 1);
+		try {
+			if (ftype != "char" && ftype != "game" && ftype != "campaign") {
+				throw "Incorrect file type (must start with 'char-' or 'game-' or 'campaign')";
+			}
+		}
+		catch(err) {
+			alert("Error: " + err);
+			return;
+		}
     for (var i = 0, f; f = files[i]; i++) {
       output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
                   f.size, ' bytes, last modified: ',
                   f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
                   '</li>');
 			reader.onload = (function(theFile) {
-				var tmp = JSON.parse(theFile.target.result);
-				document.getElementById('CampaignInfoName').value = tmp.save_name;
-				document.getElementById('CampaignInfoAdventureEffect').value = tmp.adventure_effect;
-				document.getElementById('CampaignInfoBoons').value = tmp.boons;
-				document.getElementById('CampaignInfoTyrantsDefeated').value = tmp.tyrants_defeated;
-				document.getElementById('CampaignInfoTyrant').value = tmp.tyrant;
-				document.getElementById('CampaignInfoStartingPoint').value = tmp.starting_point;
-				document.getElementById('CampaignInfoRequiredProgressPoints').value = tmp.required_progress;
-				// char 1
-				document.getElementById('CharInfoName1').value = tmp.characters[0].name;
-				document.getElementById('CharInfoBaseHP1').value = tmp.characters[0].stats_base.hp;
-				document.getElementById('CharInfoBaseDEX1').value = tmp.characters[0].stats_base.dex;
-				document.getElementById('CharInfoBaseATK1').value = tmp.characters[0].stats_base.atk;
-				document.getElementById('CharInfoBaseDEF1').value = tmp.characters[0].stats_base.df;
-				document.getElementById('CharInfoDiceHP1').value = tmp.characters[0].stats_dice.hp;
-				document.getElementById('CharInfoDiceDEX1').value = tmp.characters[0].stats_dice.dex;
-				document.getElementById('CharInfoDiceATK1').value = tmp.characters[0].stats_dice.atk;
-				document.getElementById('CharInfoDiceDEF1').value = tmp.characters[0].stats_dice.df;
-				document.getElementById('CharInfoDiceAcq1').value = tmp.characters[0].dice_acq;
-				document.getElementById('CharInfoInnate1').checked = Boolean(tmp.characters[0].innate);
-				document.getElementById('CharInfoCurrHP1').value = tmp.characters[0].curr_hp;
-				document.getElementById('CharInfoLoot1').value = tmp.characters[0].loot;
-				document.getElementById('CharInfoNotes1').value = tmp.characters[0].player_notes;
-				document.getElementById('CharInfoLockedSlots1').value = tmp.characters[0].locked_slots;
-				document.getElementById('CharInfoScars1').value = tmp.characters[0].scars;
-				// char 2
-				if (tmp.characters.length > 1) {
-					document.getElementById('CharInfo2').checked = true;
-					document.getElementById('CharInfoName2').value = tmp.characters[1].name;
-					document.getElementById('CharInfoBaseHP2').value = tmp.characters[1].stats_base.hp;
-					document.getElementById('CharInfoBaseDEX2').value = tmp.characters[1].stats_base.dex;
-					document.getElementById('CharInfoBaseATK2').value = tmp.characters[1].stats_base.atk;
-					document.getElementById('CharInfoBaseDEF2').value = tmp.characters[1].stats_base.df;
-					document.getElementById('CharInfoDiceHP2').value = tmp.characters[1].stats_dice.hp;
-					document.getElementById('CharInfoDiceDEX2').value = tmp.characters[1].stats_dice.dex;
-					document.getElementById('CharInfoDiceATK2').value = tmp.characters[1].stats_dice.atk;
-					document.getElementById('CharInfoDiceDEF2').value = tmp.characters[1].stats_dice.df;
-					document.getElementById('CharInfoDiceAcq2').value = tmp.characters[1].dice_acq;
-					document.getElementById('CharInfoInnate2').checked = Boolean(tmp.characters[1].innate);
-					document.getElementById('CharInfoCurrHP2').value = tmp.characters[1].curr_hp;
-					document.getElementById('CharInfoLoot2').value = tmp.characters[1].loot;
-					document.getElementById('CharInfoNotes2').value = tmp.characters[1].player_notes;
-					document.getElementById('CharInfoLockedSlots2').value = tmp.characters[1].locked_slots;
-					document.getElementById('CharInfoScars2').value = tmp.characters[1].scars;
+				try {
+					var tmp = JSON.parse(theFile.target.result);
 				}
-				// char 3
-				if (tmp.characters.length > 2) {
-					document.getElementById('CharInfo3').checked = true;
-					document.getElementById('CharInfoName3').value = tmp.characters[2].name;
-					document.getElementById('CharInfoBaseHP3').value = tmp.characters[2].stats_base.hp;
-					document.getElementById('CharInfoBaseDEX3').value = tmp.characters[2].stats_base.dex;
-					document.getElementById('CharInfoBaseATK3').value = tmp.characters[2].stats_base.atk;
-					document.getElementById('CharInfoBaseDEF3').value = tmp.characters[2].stats_base.df;
-					document.getElementById('CharInfoDiceHP3').value = tmp.characters[2].stats_dice.hp;
-					document.getElementById('CharInfoDiceDEX3').value = tmp.characters[2].stats_dice.dex;
-					document.getElementById('CharInfoDiceATK3').value = tmp.characters[2].stats_dice.atk;
-					document.getElementById('CharInfoDiceDEF3').value = tmp.characters[2].stats_dice.df;
-					document.getElementById('CharInfoDiceAcq3').value = tmp.characters[2].dice_acq;
-					document.getElementById('CharInfoInnate3').checked = Boolean(tmp.characters[2].innate);
-					document.getElementById('CharInfoCurrHP3').value = tmp.characters[2].curr_hp;
-					document.getElementById('CharInfoLoot3').value = tmp.characters[2].loot;
-					document.getElementById('CharInfoNotes3').value = tmp.characters[2].player_notes;
-					document.getElementById('CharInfoLockedSlots3').value = tmp.characters[2].locked_slots;
-					document.getElementById('CharInfoScars3').value = tmp.characters[2].scars;
+				catch(err) {
+					alert("Invalid json object");
+					return;
 				}
-				// char 4
-				if (tmp.characters.length > 3) {
-					document.getElementById('CharInfo4').checked = true;
-					document.getElementById('CharInfoName4').value = tmp.characters[3].name;
-					document.getElementById('CharInfoBaseHP4').value = tmp.characters[3].stats_base.hp;
-					document.getElementById('CharInfoBaseDEX4').value = tmp.characters[3].stats_base.dex;
-					document.getElementById('CharInfoBaseATK4').value = tmp.characters[3].stats_base.atk;
-					document.getElementById('CharInfoBaseDEF4').value = tmp.characters[3].stats_base.df;
-					document.getElementById('CharInfoDiceHP4').value = tmp.characters[3].stats_dice.hp;
-					document.getElementById('CharInfoDiceDEX4').value = tmp.characters[3].stats_dice.dex;
-					document.getElementById('CharInfoDiceATK4').value = tmp.characters[3].stats_dice.atk;
-					document.getElementById('CharInfoDiceDEF4').value = tmp.characters[3].stats_dice.df;
-					document.getElementById('CharInfoDiceAcq4').value = tmp.characters[3].dice_acq;
-					document.getElementById('CharInfoInnate4').checked = Boolean(tmp.characters[3].innate);
-					document.getElementById('CharInfoCurrHP4').value = tmp.characters[3].curr_hp;
-					document.getElementById('CharInfoLoot4').value = tmp.characters[3].loot;
-					document.getElementById('CharInfoNotes4').value = tmp.characters[3].player_notes;
-					document.getElementById('CharInfoLockedSlots4').value = tmp.characters[3].locked_slots;
-					document.getElementById('CharInfoScars4').value = tmp.characters[3].scars;
-				}
-				if (tmp.game != 0) {
+				if (ftype == "char") {
+					document.getElementById('CharInfoName1').value = tmp.name;
+					document.getElementById('CharInfoBaseHP1').value = tmp.stats_base.hp;
+					document.getElementById('CharInfoBaseDEX1').value = tmp.stats_base.dex;
+					document.getElementById('CharInfoBaseATK1').value = tmp.stats_base.atk;
+					document.getElementById('CharInfoBaseDEF1').value = tmp.stats_base.df;
+					document.getElementById('CharInfoDiceHP1').value = tmp.stats_dice.hp;
+					document.getElementById('CharInfoDiceDEX1').value = tmp.stats_dice.dex;
+					document.getElementById('CharInfoDiceATK1').value = tmp.stats_dice.atk;
+					document.getElementById('CharInfoDiceDEF1').value = tmp.stats_dice.df;
+					document.getElementById('CharInfoDiceAcq1').value = tmp.dice_acq;
+					document.getElementById('CharInfoInnate1').checked = Boolean(tmp.innate);
+					document.getElementById('CharInfoCurrHP1').value = tmp.curr_hp;
+					document.getElementById('CharInfoLoot1').value = tmp.loot;
+					document.getElementById('CharInfoNotes1').value = tmp.player_notes;
+					document.getElementById('CharInfoLockedSlots1').value = tmp.locked_slots;
+					document.getElementById('CharInfoScars1').value = tmp.scars;
+				} else if (ftype == "game") {
 					document.getElementById('GameInfoName').value = tmp.game.save_name;
 					document.getElementById('GameInfoTyrant').value = tmp.game.tyrant;
 					document.getAnimations('GameInfoDayCount').value = tmp.game.day_count;
@@ -363,6 +313,177 @@ class CampaignInfoLoad extends React.Component {
 					document.getElementById('GameInfoEncountersCompleted').value = tmp.game.encounters_completed;
 					document.getElementById('GameInfoEncountersRemaining').value = tmp.game.encounters_remaining;
 					document.getElementById('GameInfoLootUsed').value = tmp.game.loot_used;
+					// char 1
+					document.getElementById('CharInfoName1').value = tmp.characters[0].name;
+					document.getElementById('CharInfoBaseHP1').value = tmp.characters[0].stats_base.hp;
+					document.getElementById('CharInfoBaseDEX1').value = tmp.characters[0].stats_base.dex;
+					document.getElementById('CharInfoBaseATK1').value = tmp.characters[0].stats_base.atk;
+					document.getElementById('CharInfoBaseDEF1').value = tmp.characters[0].stats_base.df;
+					document.getElementById('CharInfoDiceHP1').value = tmp.characters[0].stats_dice.hp;
+					document.getElementById('CharInfoDiceDEX1').value = tmp.characters[0].stats_dice.dex;
+					document.getElementById('CharInfoDiceATK1').value = tmp.characters[0].stats_dice.atk;
+					document.getElementById('CharInfoDiceDEF1').value = tmp.characters[0].stats_dice.df;
+					document.getElementById('CharInfoDiceAcq1').value = tmp.characters[0].dice_acq;
+					document.getElementById('CharInfoInnate1').checked = Boolean(tmp.characters[0].innate);
+					document.getElementById('CharInfoCurrHP1').value = tmp.characters[0].curr_hp;
+					document.getElementById('CharInfoLoot1').value = tmp.characters[0].loot;
+					document.getElementById('CharInfoNotes1').value = tmp.characters[0].player_notes;
+					document.getElementById('CharInfoLockedSlots1').value = tmp.characters[0].locked_slots;
+					document.getElementById('CharInfoScars1').value = tmp.characters[0].scars;
+					// char 2
+					if (tmp.characters.length > 1) {
+						document.getElementById('CharInfo2').checked = true;
+						document.getElementById('CharInfoName2').value = tmp.characters[1].name;
+						document.getElementById('CharInfoBaseHP2').value = tmp.characters[1].stats_base.hp;
+						document.getElementById('CharInfoBaseDEX2').value = tmp.characters[1].stats_base.dex;
+						document.getElementById('CharInfoBaseATK2').value = tmp.characters[1].stats_base.atk;
+						document.getElementById('CharInfoBaseDEF2').value = tmp.characters[1].stats_base.df;
+						document.getElementById('CharInfoDiceHP2').value = tmp.characters[1].stats_dice.hp;
+						document.getElementById('CharInfoDiceDEX2').value = tmp.characters[1].stats_dice.dex;
+						document.getElementById('CharInfoDiceATK2').value = tmp.characters[1].stats_dice.atk;
+						document.getElementById('CharInfoDiceDEF2').value = tmp.characters[1].stats_dice.df;
+						document.getElementById('CharInfoDiceAcq2').value = tmp.characters[1].dice_acq;
+						document.getElementById('CharInfoInnate2').checked = Boolean(tmp.characters[1].innate);
+						document.getElementById('CharInfoCurrHP2').value = tmp.characters[1].curr_hp;
+						document.getElementById('CharInfoLoot2').value = tmp.characters[1].loot;
+						document.getElementById('CharInfoNotes2').value = tmp.characters[1].player_notes;
+						document.getElementById('CharInfoLockedSlots2').value = tmp.characters[1].locked_slots;
+						document.getElementById('CharInfoScars2').value = tmp.characters[1].scars;
+					}
+					// char 3
+					if (tmp.characters.length > 2) {
+						document.getElementById('CharInfo3').checked = true;
+						document.getElementById('CharInfoName3').value = tmp.characters[2].name;
+						document.getElementById('CharInfoBaseHP3').value = tmp.characters[2].stats_base.hp;
+						document.getElementById('CharInfoBaseDEX3').value = tmp.characters[2].stats_base.dex;
+						document.getElementById('CharInfoBaseATK3').value = tmp.characters[2].stats_base.atk;
+						document.getElementById('CharInfoBaseDEF3').value = tmp.characters[2].stats_base.df;
+						document.getElementById('CharInfoDiceHP3').value = tmp.characters[2].stats_dice.hp;
+						document.getElementById('CharInfoDiceDEX3').value = tmp.characters[2].stats_dice.dex;
+						document.getElementById('CharInfoDiceATK3').value = tmp.characters[2].stats_dice.atk;
+						document.getElementById('CharInfoDiceDEF3').value = tmp.characters[2].stats_dice.df;
+						document.getElementById('CharInfoDiceAcq3').value = tmp.characters[2].dice_acq;
+						document.getElementById('CharInfoInnate3').checked = Boolean(tmp.characters[2].innate);
+						document.getElementById('CharInfoCurrHP3').value = tmp.characters[2].curr_hp;
+						document.getElementById('CharInfoLoot3').value = tmp.characters[2].loot;
+						document.getElementById('CharInfoNotes3').value = tmp.characters[2].player_notes;
+						document.getElementById('CharInfoLockedSlots3').value = tmp.characters[2].locked_slots;
+						document.getElementById('CharInfoScars3').value = tmp.characters[2].scars;
+					}
+					// char 4
+					if (tmp.characters.length > 3) {
+						document.getElementById('CharInfo4').checked = true;
+						document.getElementById('CharInfoName4').value = tmp.characters[3].name;
+						document.getElementById('CharInfoBaseHP4').value = tmp.characters[3].stats_base.hp;
+						document.getElementById('CharInfoBaseDEX4').value = tmp.characters[3].stats_base.dex;
+						document.getElementById('CharInfoBaseATK4').value = tmp.characters[3].stats_base.atk;
+						document.getElementById('CharInfoBaseDEF4').value = tmp.characters[3].stats_base.df;
+						document.getElementById('CharInfoDiceHP4').value = tmp.characters[3].stats_dice.hp;
+						document.getElementById('CharInfoDiceDEX4').value = tmp.characters[3].stats_dice.dex;
+						document.getElementById('CharInfoDiceATK4').value = tmp.characters[3].stats_dice.atk;
+						document.getElementById('CharInfoDiceDEF4').value = tmp.characters[3].stats_dice.df;
+						document.getElementById('CharInfoDiceAcq4').value = tmp.characters[3].dice_acq;
+						document.getElementById('CharInfoInnate4').checked = Boolean(tmp.characters[3].innate);
+						document.getElementById('CharInfoCurrHP4').value = tmp.characters[3].curr_hp;
+						document.getElementById('CharInfoLoot4').value = tmp.characters[3].loot;
+						document.getElementById('CharInfoNotes4').value = tmp.characters[3].player_notes;
+						document.getElementById('CharInfoLockedSlots4').value = tmp.characters[3].locked_slots;
+						document.getElementById('CharInfoScars4').value = tmp.characters[3].scars;
+					}
+				} else {
+					document.getElementById('CampaignInfoName').value = tmp.save_name;
+					document.getElementById('CampaignInfoAdventureEffect').value = tmp.adventure_effect;
+					document.getElementById('CampaignInfoBoons').value = tmp.boons;
+					document.getElementById('CampaignInfoTyrantsDefeated').value = tmp.tyrants_defeated;
+					document.getElementById('CampaignInfoTyrant').value = tmp.tyrant;
+					document.getElementById('CampaignInfoStartingPoint').value = tmp.starting_point;
+					document.getElementById('CampaignInfoRequiredProgressPoints').value = tmp.required_progress;
+					// char 1
+					document.getElementById('CharInfoName1').value = tmp.characters[0].name;
+					document.getElementById('CharInfoBaseHP1').value = tmp.characters[0].stats_base.hp;
+					document.getElementById('CharInfoBaseDEX1').value = tmp.characters[0].stats_base.dex;
+					document.getElementById('CharInfoBaseATK1').value = tmp.characters[0].stats_base.atk;
+					document.getElementById('CharInfoBaseDEF1').value = tmp.characters[0].stats_base.df;
+					document.getElementById('CharInfoDiceHP1').value = tmp.characters[0].stats_dice.hp;
+					document.getElementById('CharInfoDiceDEX1').value = tmp.characters[0].stats_dice.dex;
+					document.getElementById('CharInfoDiceATK1').value = tmp.characters[0].stats_dice.atk;
+					document.getElementById('CharInfoDiceDEF1').value = tmp.characters[0].stats_dice.df;
+					document.getElementById('CharInfoDiceAcq1').value = tmp.characters[0].dice_acq;
+					document.getElementById('CharInfoInnate1').checked = Boolean(tmp.characters[0].innate);
+					document.getElementById('CharInfoCurrHP1').value = tmp.characters[0].curr_hp;
+					document.getElementById('CharInfoLoot1').value = tmp.characters[0].loot;
+					document.getElementById('CharInfoNotes1').value = tmp.characters[0].player_notes;
+					document.getElementById('CharInfoLockedSlots1').value = tmp.characters[0].locked_slots;
+					document.getElementById('CharInfoScars1').value = tmp.characters[0].scars;
+					// char 2
+					if (tmp.characters.length > 1) {
+						document.getElementById('CharInfo2').checked = true;
+						document.getElementById('CharInfoName2').value = tmp.characters[1].name;
+						document.getElementById('CharInfoBaseHP2').value = tmp.characters[1].stats_base.hp;
+						document.getElementById('CharInfoBaseDEX2').value = tmp.characters[1].stats_base.dex;
+						document.getElementById('CharInfoBaseATK2').value = tmp.characters[1].stats_base.atk;
+						document.getElementById('CharInfoBaseDEF2').value = tmp.characters[1].stats_base.df;
+						document.getElementById('CharInfoDiceHP2').value = tmp.characters[1].stats_dice.hp;
+						document.getElementById('CharInfoDiceDEX2').value = tmp.characters[1].stats_dice.dex;
+						document.getElementById('CharInfoDiceATK2').value = tmp.characters[1].stats_dice.atk;
+						document.getElementById('CharInfoDiceDEF2').value = tmp.characters[1].stats_dice.df;
+						document.getElementById('CharInfoDiceAcq2').value = tmp.characters[1].dice_acq;
+						document.getElementById('CharInfoInnate2').checked = Boolean(tmp.characters[1].innate);
+						document.getElementById('CharInfoCurrHP2').value = tmp.characters[1].curr_hp;
+						document.getElementById('CharInfoLoot2').value = tmp.characters[1].loot;
+						document.getElementById('CharInfoNotes2').value = tmp.characters[1].player_notes;
+						document.getElementById('CharInfoLockedSlots2').value = tmp.characters[1].locked_slots;
+						document.getElementById('CharInfoScars2').value = tmp.characters[1].scars;
+					}
+					// char 3
+					if (tmp.characters.length > 2) {
+						document.getElementById('CharInfo3').checked = true;
+						document.getElementById('CharInfoName3').value = tmp.characters[2].name;
+						document.getElementById('CharInfoBaseHP3').value = tmp.characters[2].stats_base.hp;
+						document.getElementById('CharInfoBaseDEX3').value = tmp.characters[2].stats_base.dex;
+						document.getElementById('CharInfoBaseATK3').value = tmp.characters[2].stats_base.atk;
+						document.getElementById('CharInfoBaseDEF3').value = tmp.characters[2].stats_base.df;
+						document.getElementById('CharInfoDiceHP3').value = tmp.characters[2].stats_dice.hp;
+						document.getElementById('CharInfoDiceDEX3').value = tmp.characters[2].stats_dice.dex;
+						document.getElementById('CharInfoDiceATK3').value = tmp.characters[2].stats_dice.atk;
+						document.getElementById('CharInfoDiceDEF3').value = tmp.characters[2].stats_dice.df;
+						document.getElementById('CharInfoDiceAcq3').value = tmp.characters[2].dice_acq;
+						document.getElementById('CharInfoInnate3').checked = Boolean(tmp.characters[2].innate);
+						document.getElementById('CharInfoCurrHP3').value = tmp.characters[2].curr_hp;
+						document.getElementById('CharInfoLoot3').value = tmp.characters[2].loot;
+						document.getElementById('CharInfoNotes3').value = tmp.characters[2].player_notes;
+						document.getElementById('CharInfoLockedSlots3').value = tmp.characters[2].locked_slots;
+						document.getElementById('CharInfoScars3').value = tmp.characters[2].scars;
+					}
+					// char 4
+					if (tmp.characters.length > 3) {
+						document.getElementById('CharInfo4').checked = true;
+						document.getElementById('CharInfoName4').value = tmp.characters[3].name;
+						document.getElementById('CharInfoBaseHP4').value = tmp.characters[3].stats_base.hp;
+						document.getElementById('CharInfoBaseDEX4').value = tmp.characters[3].stats_base.dex;
+						document.getElementById('CharInfoBaseATK4').value = tmp.characters[3].stats_base.atk;
+						document.getElementById('CharInfoBaseDEF4').value = tmp.characters[3].stats_base.df;
+						document.getElementById('CharInfoDiceHP4').value = tmp.characters[3].stats_dice.hp;
+						document.getElementById('CharInfoDiceDEX4').value = tmp.characters[3].stats_dice.dex;
+						document.getElementById('CharInfoDiceATK4').value = tmp.characters[3].stats_dice.atk;
+						document.getElementById('CharInfoDiceDEF4').value = tmp.characters[3].stats_dice.df;
+						document.getElementById('CharInfoDiceAcq4').value = tmp.characters[3].dice_acq;
+						document.getElementById('CharInfoInnate4').checked = Boolean(tmp.characters[3].innate);
+						document.getElementById('CharInfoCurrHP4').value = tmp.characters[3].curr_hp;
+						document.getElementById('CharInfoLoot4').value = tmp.characters[3].loot;
+						document.getElementById('CharInfoNotes4').value = tmp.characters[3].player_notes;
+						document.getElementById('CharInfoLockedSlots4').value = tmp.characters[3].locked_slots;
+						document.getElementById('CharInfoScars4').value = tmp.characters[3].scars;
+					}
+					if (tmp.game != 0) {
+						document.getElementById('GameInfoName').value = tmp.game.save_name;
+						document.getElementById('GameInfoTyrant').value = tmp.game.tyrant;
+						document.getAnimations('GameInfoDayCount').value = tmp.game.day_count;
+						document.getElementById('GameInfoProgPoints').value = tmp.game.progress_points;
+						document.getElementById('GameInfoEncountersCompleted').value = tmp.game.encounters_completed;
+						document.getElementById('GameInfoEncountersRemaining').value = tmp.game.encounters_remaining;
+						document.getElementById('GameInfoLootUsed').value = tmp.game.loot_used;
+					}
 				}
 			})
 			reader.readAsText(f);
