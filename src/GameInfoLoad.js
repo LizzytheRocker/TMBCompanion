@@ -16,8 +16,18 @@ class GameInfoLoad extends React.Component {
 	}
 
 	async submitGame() {
-		if (document.getElementById('GameInfoName').value != "") {
-			this.state.game.save_name = document.getElementById('GameInfoName').value;
+		try {
+			if (document.getElementById('GameInfoName').value != "") {
+				this.state.game.save_name = document.getElementById('GameInfoName').value;
+			} else {
+				throw "Must have a name for the game";
+			}
+		}
+		catch(err) {
+			alert("Error: " + err);
+			document.getElementById("Download").removeAttribute("href");
+			document.getElementById("Download").removeAttribute("download");
+			return;
 		}
 		this.state.game.tyrant = document.getElementById('GameInfoTyrant').value;
 		try {

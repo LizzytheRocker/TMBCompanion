@@ -15,6 +15,8 @@ class CharInfoLoad extends React.Component {
 		try {
 			if (document.getElementById('CharInfoName').value != "") {
 				this.state.char.name = document.getElementById('CharInfoName').value;
+			} else {
+				throw "Must have a name for the character";
 			}
 			var basehp = document.getElementById('CharInfoBaseHP').value;
 			var basedex = document.getElementById('CharInfoBaseDEX').value;
@@ -34,19 +36,19 @@ class CharInfoLoad extends React.Component {
 			this.state.char.locked_slots = document.getElementById('CharInfoLockedSlots').value;
 			this.state.char.scars = document.getElementById('CharInfoScars').value;
 			document.getElementById("Download").href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.state.char))}`;
-			document.getElementById("Download").download = 'char-' + this.state.char.name + '.json';
+			document.getElementById("Download").download = 'character-' + this.state.char.name + '.json';
 		}
-		catch (error) {
+		catch(error){
 			if (error.name == "TypeError") {
 				alert("Make sure to only input whole numbers for your stats and current HP!");
-				document.getElementById("Download").removeAttribute("href");
-				document.getElementById("Download").removeAttribute("download");
-			}
-			if (error.name == "RangeError") {
+			} else if (error.name == "RangeError") {
 				alert("Make sure your base stats are at least 1, and your other stats and current HP are at least 0!");
-				document.getElementById("Download").removeAttribute("href");
-				document.getElementById("Download").removeAttribute("download");
+			} else {
+				alert("Error: " + error);
 			}
+			document.getElementById("Download").removeAttribute("href");
+			document.getElementById("Download").removeAttribute("download");
+			return;
 		}
 	}
 
