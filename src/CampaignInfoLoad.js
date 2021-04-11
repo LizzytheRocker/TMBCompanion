@@ -274,18 +274,18 @@ class CampaignInfoLoad extends React.Component {
     // files is a FileList of File objects. List some properties.
     var output = [];
 		var reader = new FileReader();
-		var fname = f.name;
-		var ftype = fname.split("-", 1);
-		try {
-			if (ftype != "char" && ftype != "game" && ftype != "campaign") {
-				throw "Incorrect file type (must start with 'char-' or 'game-' or 'campaign')";
-			}
-		}
-		catch(err) {
-			alert("Error: " + err);
-			return;
-		}
     for (var i = 0, f; f = files[i]; i++) {
+			var fname = f.name;
+			var ftype = fname.split("-", 1);
+			try {
+				if (ftype != "char" && ftype != "game" && ftype != "campaign") {
+					throw "Incorrect file type (must start with 'char-' or 'game-' or 'campaign')";
+				}
+			}
+			catch(err) {
+				alert("Error: " + err);
+				return;
+			}
       output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
                   f.size, ' bytes, last modified: ',
                   f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
