@@ -246,12 +246,12 @@ class GameInfoLoad extends React.Component {
                   f.size, ' bytes, last modified: ',
                   f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
                   '</li>');
-			reader.onload = (function(theFile) {
+		reader.onload = (function (theFile) {
 				try {
 					var tmp = JSON.parse(theFile.target.result);
 				}
 				catch(err) {
-					alert("Invalid json object");
+					alert("The file you selected was either not a json file, or not the correct type of json file. Please select a valid json file");
 					return;
 				}
 				if (ftype == "character") {

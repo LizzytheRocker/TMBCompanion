@@ -79,7 +79,7 @@ class CharInfoLoad extends React.Component {
 					var tmp = JSON.parse(theFile.target.result);
 				}
 				catch(err) {
-					alert("Invalid json object");
+					alert("The file you selected was either not a json file, or not the correct type of json file. Please select a valid json file");
 					return;
 				}
 				document.getElementById('CharInfoName').value = tmp.name;
