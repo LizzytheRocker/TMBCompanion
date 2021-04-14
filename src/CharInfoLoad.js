@@ -62,8 +62,11 @@ class CharInfoLoad extends React.Component {
 			try {
 				var fname = f.name;
 				var ftype = fname.split("-", 1);
-				if (ftype != "character") {
-					throw "Incorrect file type (must start with 'character-')";
+				var fext = fname.split(".").pop();
+				if (fext != "json") {
+					throw "Incorrect file type"
+				} else if (ftype != "character") {
+					throw "Incorrect filename (must start with 'character-')";
 				}
 			}
 			catch(err) {
@@ -79,7 +82,7 @@ class CharInfoLoad extends React.Component {
 					var tmp = JSON.parse(theFile.target.result);
 				}
 				catch(err) {
-					alert("The file you selected was either not a json file, or not the correct type of json file. Please select a valid json file");
+					alert("Error: Invalid json object");
 					return;
 				}
 				document.getElementById('CharInfoName').value = tmp.name;

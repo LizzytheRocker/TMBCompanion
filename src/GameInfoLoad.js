@@ -233,9 +233,12 @@ class GameInfoLoad extends React.Component {
     for (var i = 0, f; f = files[i]; i++) {
 			var fname = f.name;
 			var ftype = fname.split("-", 1);
+			var fext = fname.split(".").pop();
 			try {
-				if (ftype != "character" && ftype != "game") {
-					throw "Incorrect file type (must start with 'character-' or 'game-')";
+				if (fext != "json") {
+					throw "Incorrect file type"
+				} else if (ftype != "character" && ftype != "game") {
+					throw "Incorrect file name (must start with 'character-' or 'game-')";
 				}
 			}
 			catch(err) {
@@ -251,7 +254,7 @@ class GameInfoLoad extends React.Component {
 					var tmp = JSON.parse(theFile.target.result);
 				}
 				catch(err) {
-					alert("The file you selected was either not a json file, or not the correct type of json file. Please select a valid json file");
+					alert("Error: Invalid json object");
 					return;
 				}
 				if (ftype == "character") {
