@@ -24,6 +24,7 @@ const Button = styled.button`
     box-shadow: 0px 5px 5px #28467a;
 `;
 const Title = styled.div`
+    color: black;
     font-size: 42px;
     padding: 30px 0px;
 `;
@@ -40,8 +41,8 @@ const Row = styled.div`
   padding: 20px 0px;
 `;
 
-const MenuBottom = styled.div`
-    padding: 24px;
+const WikiBottom = styled.div`
+    padding: 53px;
 `;
 
 const CharBottom = styled.div`
@@ -81,9 +82,12 @@ function MainMenu({ navigation }) {
 		<Button onClick={() => navigation.navigate("Campaign Load Screen")}>Load Campaign</Button>
                 </div>
 		<Space></Space>
+
+		<Button onClick={() => navigation.navigate("Main Wiki Screen")}>Open Wiki</Button>
+		<Space></Space>
             </div>
             <Button onClick={() => window.close()}>Done</Button>
-	    <MenuBottom/>
+	    <Space></Space>
         </View>
     );
 }
@@ -147,6 +151,70 @@ function CampaignLoadScreen({ navigation }) {
     );
 }
 
+function MainWikiScreen({ navigation }) {
+    return (
+	<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+            <div className="App" style={rootStyle}>
+		<Space></Space>
+		<Title>Too Many Bones Wiki</Title>
+		<Space></Space>
+		<Space></Space>
+
+	    	<Button onClick={() => navigation.navigate("Character Wiki Screen")}>Character Wiki</Button>
+	    	<Space></Space>
+		<Space></Space>
+
+	    	<Button onClick={() => navigation.navigate("Enemy Wiki Screen")}>Enemy Wiki</Button>
+	    	<Space></Space>
+		<Space></Space>
+
+	    	<Button onClick={() => navigation.navigate("Tyrant Wiki Screen")}>Tyrant Wiki</Button>
+	    	<Space></Space>
+		<Space></Space>
+
+	    	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	    	<WikiBottom/>
+	    </div>
+	</View>
+    );
+}
+
+function CharacterWikiScreen({ navigation }) {
+    return (
+	<div>
+	<Title>Character Wiki</Title>
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function EnemyWikiScreen({ navigation }) {
+    return (
+	<div>
+	<Title>Enemy Wiki</Title>
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function TyrantWikiScreen({ navigation }) {
+    return (
+	<div>
+	<Title>Tyrant Wiki</Title>
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
 const App = () => {
     return (
     <html lang="en">
@@ -199,6 +267,26 @@ const App = () => {
                 <Stack.Screen
                     name="Campaign Load Screen"
                     component={CampaignLoadScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Main Wiki Screen"
+                    component={MainWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Character Wiki Screen"
+                    component={CharacterWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Enemy Wiki Screen"
+                    component={EnemyWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Tyrant Wiki Screen"
+                    component={TyrantWikiScreen}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
