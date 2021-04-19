@@ -11,6 +11,7 @@ import CampaignInfo from './CampaignInfo.js';
 import CharInfoLoad from './CharInfoLoad.js'
 import GameInfoLoad from './GameInfoLoad.js'
 import CampaignInfoLoad from './CampaignInfoLoad.js'
+import BaddieWiki from './BaddieWiki.js'
 
 const Button = styled.button`
     background-color: #00bcd4;
@@ -164,7 +165,7 @@ function MainWikiScreen({ navigation }) {
 	    	<Space></Space>
 		<Space></Space>
 
-	    	<Button onClick={() => navigation.navigate("Enemy Wiki Screen")}>Enemy Wiki</Button>
+	    	<Button onClick={() => navigation.navigate("Baddie Wiki Screen")}>Baddie Wiki</Button>
 	    	<Space></Space>
 		<Space></Space>
 
@@ -191,10 +192,10 @@ function CharacterWikiScreen({ navigation }) {
     );
 }
 
-function EnemyWikiScreen({ navigation }) {
+function BaddieWikiScreen({ navigation }) {
     return (
 	<div>
-	<Title>Enemy Wiki</Title>
+	<BaddieWiki />
 	<Space></Space>
 
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
@@ -280,8 +281,8 @@ const App = () => {
                     options={{ headerShown: false }}
                 />
                 <Stack.Screen
-                    name="Enemy Wiki Screen"
-                    component={EnemyWikiScreen}
+                    name="Baddie Wiki Screen"
+                    component={BaddieWikiScreen}
                     options={{ headerShown: false }}
                 />
                 <Stack.Screen
