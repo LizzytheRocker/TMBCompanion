@@ -14,9 +14,9 @@ import CampaignInfoLoad from './CampaignInfoLoad.js'
 import BaddieWiki from './BaddieWiki.js'
 
 const Button = styled.button`
-    background-color: #00bcd4;
+    background-color: #2a6f97;
     &:hover {
-        background-color: #0097a7;
+        background-color: #014f86;
     }
     border-radius: 7px;
     padding: 0px 10px;
@@ -51,8 +51,8 @@ const CharBottom = styled.div`
 `;
 
 var rootStyle = {
-    backgroundColor: "#28527a",
-    color: "#28527a",
+    backgroundColor: "#61a5c2",
+    color: "#61a5c2",
     height: "100%"
 };
 
@@ -232,7 +232,7 @@ const App = () => {
                 initialRouteName="Main Menu"
                 screenOptions={{
                     headerTitleAlign: "center",
-                    cardStyle: { backgroundColor: "#28527a" }
+                    cardStyle: { backgroundColor: "#61a5c2" }
                 }}
                 >
 		<Stack.Screen

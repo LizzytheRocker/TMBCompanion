@@ -680,7 +680,7 @@ class CampaignInfoLoad extends React.Component {
 								<h2>Stat Increases:</h2>
 							</div>
 						</div>
-
+						<div class="row">
     						<div class="col">
 							<p>HP</p>
 							<input
@@ -729,7 +729,6 @@ class CampaignInfoLoad extends React.Component {
 								type='number'
 							/>
     						</div>
-						<div class="row">
 						</div>
 						<div class="row">
 							<div class="col">
@@ -783,6 +782,8 @@ class CampaignInfoLoad extends React.Component {
 									type='text'
 								/>
 							</div>
+							<div class="col">
+							</div>
 						</div>
 
 						<Space/>
@@ -821,7 +822,7 @@ class CampaignInfoLoad extends React.Component {
 								<h2>Stat Increases:</h2>
 							</div>
 						</div>
-
+						<div class="row">
     						<div class="col">
 							<p>HP</p>
 							<input
@@ -870,7 +871,6 @@ class CampaignInfoLoad extends React.Component {
 								type='number'
 							/>
     						</div>
-						<div class="row">
 						</div>
 						<div class="row">
 							<div class="col">
@@ -924,6 +924,8 @@ class CampaignInfoLoad extends React.Component {
 									type='text'
 								/>
 							</div>
+							<div class="col">
+							</div>
 						</div>
 
 						<Space/>
@@ -962,7 +964,7 @@ class CampaignInfoLoad extends React.Component {
 								<h2>Stat Increases:</h2>
 							</div>
 						</div>
-
+						<div class="row">
     						<div class="col">
 							<p>HP</p>
 							<input
@@ -1011,7 +1013,6 @@ class CampaignInfoLoad extends React.Component {
 								type='number'
 							/>
     						</div>
-						<div class="row">
 						</div>
 						<div class="row">
 							<div class="col">
@@ -1065,6 +1066,8 @@ class CampaignInfoLoad extends React.Component {
 									type='text'
 								/>
 							</div>
+							<div class="col">
+							</div>
 						</div>
 
 						<Space/>
@@ -1103,7 +1106,7 @@ class CampaignInfoLoad extends React.Component {
 								<h2>Stat Increases:</h2>
 							</div>
 						</div>
-
+						<div class="row">
     						<div class="col">
 							<p>HP</p>
 							<input
@@ -1152,7 +1155,6 @@ class CampaignInfoLoad extends React.Component {
 								type='number'
 							/>
     						</div>
-						<div class="row">
 						</div>
 						<div class="row">
 							<div class="col">
@@ -1205,6 +1207,8 @@ class CampaignInfoLoad extends React.Component {
 									id='CharInfoScars4'
 									type='text'
 								/>
+							</div>
+							<div class="col">
 							</div>
 						</div>
 					</div>

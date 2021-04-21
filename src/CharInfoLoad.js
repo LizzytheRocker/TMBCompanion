@@ -144,7 +144,7 @@ class CharInfoLoad extends React.Component {
 								<h2>Stat Increases:</h2>
 							</div>
 						</div>
-
+						<div class="row">
     						<div class="col">
 							<p>HP</p>
 							<input
@@ -193,7 +193,6 @@ class CharInfoLoad extends React.Component {
 								type='number'
 							/>
     						</div>
-						<div class="row">
 						</div>
 						<div class="row">
 							<div class="col">
@@ -246,6 +245,8 @@ class CharInfoLoad extends React.Component {
 									id='CharInfoScars'
 									type='text'
 								/>
+							</div>
+							<div class="col">
 							</div>
 						</div>
   					</div>

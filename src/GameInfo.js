@@ -305,7 +305,7 @@ class GameInfo extends React.Component {
 								<h2>Stat Increases:</h2>
 							</div>
 						</div>
-
+						<div class="row">
     						<div class="col">
 							<p>HP</p>
 							<input
@@ -354,7 +354,6 @@ class GameInfo extends React.Component {
 								type='number'
 							/>
     						</div>
-						<div class="row">
 						</div>
 						<div class="row">
 							<div class="col">
@@ -408,6 +407,8 @@ class GameInfo extends React.Component {
 									type='text'
 								/>
 							</div>
+							<div class="col">
+							</div>
 						</div>
 
 						<Space/>
@@ -446,7 +447,7 @@ class GameInfo extends React.Component {
 								<h2>Stat Increases:</h2>
 							</div>
 						</div>
-
+						<div class="row">
     						<div class="col">
 							<p>HP</p>
 							<input
@@ -495,7 +496,6 @@ class GameInfo extends React.Component {
 								type='number'
 							/>
     						</div>
-						<div class="row">
 						</div>
 						<div class="row">
 							<div class="col">
@@ -549,6 +549,8 @@ class GameInfo extends React.Component {
 									type='text'
 								/>
 							</div>
+							<div class="col">
+							</div>
 						</div>
 
 						<Space/>
@@ -587,7 +589,7 @@ class GameInfo extends React.Component {
 								<h2>Stat Increases:</h2>
 							</div>
 						</div>
-
+						<div class="row">
     						<div class="col">
 							<p>HP</p>
 							<input
@@ -636,7 +638,6 @@ class GameInfo extends React.Component {
 								type='number'
 							/>
     						</div>
-						<div class="row">
 						</div>
 						<div class="row">
 							<div class="col">
@@ -690,6 +691,8 @@ class GameInfo extends React.Component {
 									type='text'
 								/>
 							</div>
+							<div class="col">
+							</div>
 						</div>
 
 						<Space/>
@@ -728,7 +731,7 @@ class GameInfo extends React.Component {
 								<h2>Stat Increases:</h2>
 							</div>
 						</div>
-
+						<div class="row">
     						<div class="col">
 							<p>HP</p>
 							<input
@@ -777,7 +780,6 @@ class GameInfo extends React.Component {
 								type='number'
 							/>
     						</div>
-						<div class="row">
 						</div>
 						<div class="row">
 							<div class="col">
@@ -830,6 +832,8 @@ class GameInfo extends React.Component {
 									id='CharInfoScars4'
 									type='text'
 								/>
+							</div>
+							<div class="col">
 							</div>
 						</div>
 

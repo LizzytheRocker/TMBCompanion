@@ -83,6 +83,7 @@ class CharInfo extends React.Component {
 							</div>
 						</div>
 
+						<div class="row">
     						<div class="col">
 							<p>HP</p>
 							<input
@@ -131,32 +132,41 @@ class CharInfo extends React.Component {
 								type='number'
 							/>
     						</div>
-						<div class="row">
 						</div>
 						<div class="row">
 							<div class="col">
 								<h2>Skill Dice</h2>
+							</div>
+							<div class="col">
+								<h2>Current HP</h2>
+							</div>
+							<div class="col">
+								<h2>Loot</h2>
+							</div>
+							<div class="col">
+								<h2>Innate +1</h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
 								<input
 									id='CharInfoDiceAcq'
 									type='text'
 								/>
 							</div>
 							<div class="col">
-								<h2>Current HP</h2>
 								<input
 									id='CharInfoCurrHP'
 									type='number'
 								/>
 							</div>
 							<div class="col">
-								<h2>Loot</h2>
 								<input
 									id='CharInfoLoot'
 									type='text'
 								/>
 							</div>
 							<div class="col">
-								<h2>Innate +1</h2>
 								<input
 									id='CharInfoInnate'
 									type='checkbox'
@@ -184,6 +194,8 @@ class CharInfo extends React.Component {
 									id='CharInfoScars'
 									type='text'
 								/>
+							</div>
+							<div class="col">
 							</div>
 						</div>
   					</div>
