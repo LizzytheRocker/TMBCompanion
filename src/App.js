@@ -35,11 +35,11 @@ const Space = styled.div`
 `;
 
 const Col = styled.div`
-  padding: 0px 60px;
+    padding: 0px 60px;
 `;
 const Row = styled.div`
-  font-size: 28px;
-  padding: 20px 0px;
+    font-size: 28px;
+    padding: 20px 0px;
 `;
 
 const WikiBottom = styled.div`
@@ -66,29 +66,29 @@ function MainMenu({ navigation }) {
                 <img src={logo} className="photo " alt="Logo" />
 
                 <Space></Space>
-		<div>
-            	<Button onClick={() => navigation.navigate("Character Screen")}>Save Character</Button>
-		<Button onClick={() => navigation.navigate("Character Load Screen")}>Load Character</Button>
-		</div>
+                <div>
+                    <Button onClick={() => navigation.navigate("Character Screen")}>Save Character</Button>
+                    <Button onClick={() => navigation.navigate("Character Load Screen")}>Load Character</Button>
+                </div>
 
                 <Space></Space>
                 <div>
-                <Button onClick={() => navigation.navigate("Game Screen")}>Save Game</Button>
-		<Button onClick={() => navigation.navigate("Game Load Screen")}>Load Game</Button>
+                    <Button onClick={() => navigation.navigate("Game Screen")}>Save Game</Button>
+                    <Button onClick={() => navigation.navigate("Game Load Screen")}>Load Game</Button>
                 </div>
 
-		<Space></Space>
+                <Space></Space>
                 <div>
-                <Button onClick={() => navigation.navigate("Campaign Screen")}>Save Campaign</Button>
-		<Button onClick={() => navigation.navigate("Campaign Load Screen")}>Load Campaign</Button>
+                    <Button onClick={() => navigation.navigate("Campaign Screen")}>Save Campaign</Button>
+                    <Button onClick={() => navigation.navigate("Campaign Load Screen")}>Load Campaign</Button>
                 </div>
-		<Space></Space>
+                <Space></Space>
 
-		<Button onClick={() => navigation.navigate("Main Wiki Screen")}>Open Wiki</Button>
-		<Space></Space>
+                <Button onClick={() => navigation.navigate("Main Wiki Screen")}>Open Wiki</Button>
+                <Space></Space>
             </div>
             <Button onClick={() => window.close()}>Done</Button>
-	    <Space></Space>
+            <Space></Space>
         </View>
     );
 }
@@ -155,27 +155,27 @@ function CampaignLoadScreen({ navigation }) {
 function MainWikiScreen({ navigation }) {
     return (
 	<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-            <div className="App" style={rootStyle}>
-		<Space></Space>
-		<Title>Too Many Bones Wiki</Title>
-		<Space></Space>
-		<Space></Space>
+        <div className="App" style={rootStyle}>
+            <Space></Space>
+            <Title>Too Many Bones Wiki</Title>
+            <Space></Space>
+            <Space></Space>
 
-	    	<Button onClick={() => navigation.navigate("Character Wiki Screen")}>Character Wiki</Button>
-	    	<Space></Space>
-		<Space></Space>
+            <Button onClick={() => navigation.navigate("Character Wiki Screen")}>Character Wiki</Button>
+            <Space></Space>
+            <Space></Space>
 
-	    	<Button onClick={() => navigation.navigate("Baddie Wiki Screen")}>Baddie Wiki</Button>
-	    	<Space></Space>
-		<Space></Space>
+            <Button onClick={() => navigation.navigate("Baddie Wiki Screen")}>Baddie Wiki</Button>
+            <Space></Space>
+            <Space></Space>
 
-	    	<Button onClick={() => navigation.navigate("Tyrant Wiki Screen")}>Tyrant Wiki</Button>
-	    	<Space></Space>
-		<Space></Space>
+            <Button onClick={() => navigation.navigate("Tyrant Wiki Screen")}>Tyrant Wiki</Button>
+            <Space></Space>
+            <Space></Space>
 
-	    	<Button onClick={() => navigation.goBack()}>Back</Button>;
-	    	<WikiBottom/>
-	    </div>
+            <Button onClick={() => navigation.goBack()}>Back</Button>;
+            <WikiBottom/>
+        </div>
 	</View>
     );
 }
@@ -221,7 +221,7 @@ const App = () => {
     <html lang="en">
     <head>
 	<meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"/>
     </head>
@@ -235,11 +235,11 @@ const App = () => {
                     cardStyle: { backgroundColor: "#61a5c2" }
                 }}
                 >
-		<Stack.Screen
-            	    name="Main Menu"
-            	    component={MainMenu}
-            	    options={{ headerShown: false }}
-          	/>
+                <Stack.Screen
+                    name="Main Menu"
+                    component={MainMenu}
+                    options={{ headerShown: false }}
+                />
                 <Stack.Screen
                     name="Character Screen"
                     component={CharacterScreen}
