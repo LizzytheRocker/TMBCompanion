@@ -13,6 +13,8 @@ class BoomerWiki extends React.Component {
 				<br></br>
 				<h1>Boomer Wiki</h1>
 				<br></br>
+				<a href="https://www.dropbox.com/s/kg6rnmrrpc66nf4/TMB_CS_Boomer_v2.2.pdf">Download the boomer reference sheet here</a>
+				<br></br>
 
 				<img src={boomerpg1}/>
 				<img src={boomerpg2}/>
