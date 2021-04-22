@@ -12,6 +12,7 @@ import CharInfoLoad from './CharInfoLoad.js'
 import GameInfoLoad from './GameInfoLoad.js'
 import CampaignInfoLoad from './CampaignInfoLoad.js'
 import BaddieWiki from './BaddieWiki.js'
+import BoomerWiki from './BoomerWiki.js'
 
 const Button = styled.button`
     background-color: #2a6f97;
@@ -186,6 +187,10 @@ function CharacterWikiScreen({ navigation }) {
 	<Title>Character Wiki</Title>
 	<Space></Space>
 
+    <Button onClick={() => navigation.navigate("Boomer Wiki Screen")}>Boomer Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
 	<Space></Space>
 	</div>
@@ -208,6 +213,18 @@ function TyrantWikiScreen({ navigation }) {
     return (
 	<div>
 	<Title>Tyrant Wiki</Title>
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function BoomerWikiScreen({ navigation }) {
+    return (
+	<div>
+	<BoomerWiki />
 	<Space></Space>
 
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
@@ -288,6 +305,11 @@ const App = () => {
                 <Stack.Screen
                     name="Tyrant Wiki Screen"
                     component={TyrantWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Boomer Wiki Screen"
+                    component={BoomerWikiScreen}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
