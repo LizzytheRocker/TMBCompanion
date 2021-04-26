@@ -13,6 +13,16 @@ import GameInfoLoad from './GameInfoLoad.js'
 import CampaignInfoLoad from './CampaignInfoLoad.js'
 import BaddieWiki from './BaddieWiki.js'
 import BoomerWiki from './BoomerWiki.js'
+import DartWiki from './DartWiki.js'
+import DusterWiki from './DusterWiki.js'
+import GasketWiki from './GasketWiki.js'
+import GhillieWiki from './GhillieWiki.js'
+import NuggetWiki from './NuggetWiki.js'
+import PatchesWiki from './PatchesWiki.js'
+import PicketWiki from './PicketWiki.js'
+import StanzaWiki from './StanzaWiki.js'
+import TantrumWiki from './TantrumWiki.js'
+import TinkWiki from './TinkWiki.js'
 
 const Button = styled.button`
     background-color: #2a6f97;
@@ -191,6 +201,46 @@ function CharacterWikiScreen({ navigation }) {
     <Space></Space>
     <Space></Space>
 
+    <Button onClick={() => navigation.navigate("Dart Wiki Screen")}>Dart Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
+    <Button onClick={() => navigation.navigate("Duster Wiki Screen")}>Duster Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
+    <Button onClick={() => navigation.navigate("Gasket Wiki Screen")}>Gasket Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
+    <Button onClick={() => navigation.navigate("Ghillie Wiki Screen")}>Ghillie Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
+    <Button onClick={() => navigation.navigate("Nugget Wiki Screen")}>Nugget Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
+    <Button onClick={() => navigation.navigate("Patches Wiki Screen")}>Patches Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
+    <Button onClick={() => navigation.navigate("Picket Wiki Screen")}>Picket Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
+    <Button onClick={() => navigation.navigate("Stanza Wiki Screen")}>Stanza Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
+    <Button onClick={() => navigation.navigate("Tantrum Wiki Screen")}>Tantrum Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
+    <Button onClick={() => navigation.navigate("Tink Wiki Screen")}>Tink Wiki</Button>
+    <Space></Space>
+    <Space></Space>
+
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
 	<Space></Space>
 	</div>
@@ -225,6 +275,126 @@ function BoomerWikiScreen({ navigation }) {
     return (
 	<div>
 	<BoomerWiki />
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function DartWikiScreen({ navigation }) {
+    return (
+	<div>
+	<DartWiki />
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function DusterWikiScreen({ navigation }) {
+    return (
+	<div>
+	<DusterWiki />
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function GasketWikiScreen({ navigation }) {
+    return (
+	<div>
+	<GasketWiki />
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function GhillieWikiScreen({ navigation }) {
+    return (
+	<div>
+	<GhillieWiki />
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function NuggetWikiScreen({ navigation }) {
+    return (
+	<div>
+	<NuggetWiki />
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function PatchesWikiScreen({ navigation }) {
+    return (
+	<div>
+	<PatchesWiki />
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function PicketWikiScreen({ navigation }) {
+    return (
+	<div>
+	<PicketWiki />
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function StanzaWikiScreen({ navigation }) {
+    return (
+	<div>
+	<StanzaWiki />
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function TantrumWikiScreen({ navigation }) {
+    return (
+	<div>
+	<TantrumWiki />
+	<Space></Space>
+
+	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Space></Space>
+	</div>
+    );
+}
+
+function TinkWikiScreen({ navigation }) {
+    return (
+	<div>
+	<TinkWiki />
 	<Space></Space>
 
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
@@ -310,6 +480,56 @@ const App = () => {
                 <Stack.Screen
                     name="Boomer Wiki Screen"
                     component={BoomerWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Dart Wiki Screen"
+                    component={DartWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Duster Wiki Screen"
+                    component={DusterWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Gasket Wiki Screen"
+                    component={GasketWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Ghillie Wiki Screen"
+                    component={GhillieWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Nugget Wiki Screen"
+                    component={NuggetWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Patches Wiki Screen"
+                    component={PatchesWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Picket Wiki Screen"
+                    component={PicketWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Stanza Wiki Screen"
+                    component={StanzaWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Tantrum Wiki Screen"
+                    component={TantrumWikiScreen}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Tink Wiki Screen"
+                    component={TinkWikiScreen}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
