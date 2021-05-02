@@ -23,6 +23,7 @@ import PicketWiki from './PicketWiki.js'
 import StanzaWiki from './StanzaWiki.js'
 import TantrumWiki from './TantrumWiki.js'
 import TinkWiki from './TinkWiki.js'
+import TyrantWiki from './TyrantWiki.js'
 
 const Button = styled.button`
     background-color: #2a6f97;
@@ -262,7 +263,7 @@ function BaddieWikiScreen({ navigation }) {
 function TyrantWikiScreen({ navigation }) {
     return (
 	<div>
-	<Title>Tyrant Wiki</Title>
+	<TyrantWiki />
 	<Space></Space>
 
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
