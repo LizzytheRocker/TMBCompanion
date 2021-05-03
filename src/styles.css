@@ -14,13 +14,17 @@ img.resize {
 }
 
 div.CharInfo {
-  padding-left: 5%;
+  padding-left: 2%;
+}
+
+div.CharInfoLoad {
+  padding-left: 2%;
 }
 
 div.GameInfo {
-  padding-left: 5%;
+  padding-left: 2%;
 }
 
-div.Campaign {
-  padding-left: 5%;
+div.CampaignInfo {
+  padding-left: 2%;
 }
