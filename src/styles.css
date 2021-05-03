@@ -12,3 +12,15 @@ img.resize {
   max-width: 50%;
   max-height: 50%;
 }
+
+div.CharInfo {
+  padding-left: 5%;
+}
+
+div.GameInfo {
+  padding-left: 5%;
+}
+
+div.Campaign {
+  padding-left: 5%;
+}
