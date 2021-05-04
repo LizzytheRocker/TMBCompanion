@@ -46,22 +46,6 @@ const Space = styled.div`
     padding: 15px;
 `;
 
-const Col = styled.div`
-    padding: 0px 60px;
-`;
-const Row = styled.div`
-    font-size: 28px;
-    padding: 20px 0px;
-`;
-
-const WikiBottom = styled.div`
-    padding: 53px;
-`;
-
-const CharBottom = styled.div`
-    padding: 54px;
-`;
-
 var rootStyle = {
     backgroundColor: "#61a5c2",
     color: "#61a5c2",
@@ -72,15 +56,15 @@ const Stack = createStackNavigator();
 
 function MainMenu({ navigation }) {
     return (
-        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center", justifyContent: 'space-between' }}>
             <div className="App" style={rootStyle}>
                 <Space></Space>
                 <img src={logo} className="photo " alt="Logo" />
 
                 <Space></Space>
                 <div>
-                    <Button onClick={() => navigation.navigate("Character Screen")}>Save Character</Button>
-                    <Button onClick={() => navigation.navigate("Character Load Screen")}>Load Character</Button>
+                    	<Button onClick={() => navigation.navigate("Character Screen")}>Save Character</Button>
+                    	<Button onClick={() => navigation.navigate("Character Load Screen")}>Load Character</Button>
                 </div>
 
                 <Space></Space>
@@ -98,9 +82,9 @@ function MainMenu({ navigation }) {
 
                 <Button onClick={() => navigation.navigate("Main Wiki Screen")}>Open Wiki</Button>
                 <Space></Space>
-            </div>
             <Button onClick={() => window.close()}>Done</Button>
             <Space></Space>
+            </div>
         </View>
     );
 }
@@ -110,8 +94,7 @@ function CharacterScreen({ navigation }) {
 	<div>
 	<CharInfo />
 	<Space></Space>
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
-	<CharBottom/>
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	</div>
     );
 }
@@ -120,8 +103,7 @@ function CharacterLoadScreen({ navigation }) {
 	<div>
 	<CharInfoLoad />
 	<Space></Space>
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
-	<CharBottom/>
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	</div>
     );
 }
@@ -131,7 +113,7 @@ function GameScreen({ navigation }) {
 	<div>
 	<GameInfo />
 	<Space></Space>
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	</div>
     );
 }
@@ -140,7 +122,7 @@ function GameLoadScreen({ navigation }) {
 	<div>
 	<GameInfoLoad />
 	<Space></Space>
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	</div>
     );
 }
@@ -150,7 +132,7 @@ function CampaignScreen({ navigation }) {
 	<div>
 	<CampaignInfo />
 	<Space></Space>
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	</div>
     );
 }
@@ -159,7 +141,7 @@ function CampaignLoadScreen({ navigation }) {
 	<div>
 	<CampaignInfoLoad />
 	<Space></Space>
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	</div>
     );
 }
@@ -185,8 +167,7 @@ function MainWikiScreen({ navigation }) {
             <Space></Space>
             <Space></Space>
 
-            <Button onClick={() => navigation.goBack()}>Back</Button>;
-            <WikiBottom/>
+            <Button onClick={() => navigation.goBack()}>Back</Button>
         </div>
 	</View>
     );
@@ -197,50 +178,55 @@ function CharacterWikiScreen({ navigation }) {
 	<div>
 	<Title>Character Wiki</Title>
 	<Space></Space>
+	<div class="row">
+	    <div class="col">
+		<Button onClick={() => navigation.navigate("Boomer Wiki Screen")}>Boomer Wiki</Button>
+	        <Space></Space>
+	        <Space></Space>
 
-    <Button onClick={() => navigation.navigate("Boomer Wiki Screen")}>Boomer Wiki</Button>
-    <Space></Space>
-    <Space></Space>
+	        <Button onClick={() => navigation.navigate("Dart Wiki Screen")}>Dart Wiki</Button>
+    		<Space></Space>
+    		<Space></Space>
 
-    <Button onClick={() => navigation.navigate("Dart Wiki Screen")}>Dart Wiki</Button>
-    <Space></Space>
-    <Space></Space>
+    		<Button onClick={() => navigation.navigate("Duster Wiki Screen")}>Duster Wiki</Button>
+    		<Space></Space>
+    		<Space></Space>
 
-    <Button onClick={() => navigation.navigate("Duster Wiki Screen")}>Duster Wiki</Button>
-    <Space></Space>
-    <Space></Space>
+    		<Button onClick={() => navigation.navigate("Gasket Wiki Screen")}>Gasket Wiki</Button>
+    		<Space></Space>
+    		<Space></Space>
+	    </div>
+	    <div class="col">
+    		<Button onClick={() => navigation.navigate("Ghillie Wiki Screen")}>Ghillie Wiki</Button>
+    		<Space></Space>
+    		<Space></Space>
 
-    <Button onClick={() => navigation.navigate("Gasket Wiki Screen")}>Gasket Wiki</Button>
-    <Space></Space>
-    <Space></Space>
+    		<Button onClick={() => navigation.navigate("Nugget Wiki Screen")}>Nugget Wiki</Button>
+    		<Space></Space>
+    		<Space></Space>
 
-    <Button onClick={() => navigation.navigate("Ghillie Wiki Screen")}>Ghillie Wiki</Button>
-    <Space></Space>
-    <Space></Space>
+    		<Button onClick={() => navigation.navigate("Patches Wiki Screen")}>Patches Wiki</Button>
+    		<Space></Space>
+    		<Space></Space>
 
-    <Button onClick={() => navigation.navigate("Nugget Wiki Screen")}>Nugget Wiki</Button>
-    <Space></Space>
-    <Space></Space>
+    		<Button onClick={() => navigation.navigate("Picket Wiki Screen")}>Picket Wiki</Button>
+    		<Space></Space>
+    		<Space></Space>
+	    </div>
+	    <div class="col">
+    		<Button onClick={() => navigation.navigate("Stanza Wiki Screen")}>Stanza Wiki</Button>
+    		<Space></Space>
+    		<Space></Space>
 
-    <Button onClick={() => navigation.navigate("Patches Wiki Screen")}>Patches Wiki</Button>
-    <Space></Space>
-    <Space></Space>
+    		<Button onClick={() => navigation.navigate("Tantrum Wiki Screen")}>Tantrum Wiki</Button>
+    		<Space></Space>
+    		<Space></Space>
 
-    <Button onClick={() => navigation.navigate("Picket Wiki Screen")}>Picket Wiki</Button>
-    <Space></Space>
-    <Space></Space>
-
-    <Button onClick={() => navigation.navigate("Stanza Wiki Screen")}>Stanza Wiki</Button>
-    <Space></Space>
-    <Space></Space>
-
-    <Button onClick={() => navigation.navigate("Tantrum Wiki Screen")}>Tantrum Wiki</Button>
-    <Space></Space>
-    <Space></Space>
-
-    <Button onClick={() => navigation.navigate("Tink Wiki Screen")}>Tink Wiki</Button>
-    <Space></Space>
-    <Space></Space>
+    		<Button onClick={() => navigation.navigate("Tink Wiki Screen")}>Tink Wiki</Button>
+    		<Space></Space>
+    		<Space></Space>
+	    </div>
+	</div>
 
 	<Button onClick={() => navigation.goBack()}>Back</Button>;
 	<Space></Space>
@@ -254,7 +240,7 @@ function BaddieWikiScreen({ navigation }) {
 	<BaddieWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -266,7 +252,7 @@ function TyrantWikiScreen({ navigation }) {
 	<TyrantWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -278,7 +264,7 @@ function BoomerWikiScreen({ navigation }) {
 	<BoomerWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -290,7 +276,7 @@ function DartWikiScreen({ navigation }) {
 	<DartWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -302,7 +288,7 @@ function DusterWikiScreen({ navigation }) {
 	<DusterWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -314,7 +300,7 @@ function GasketWikiScreen({ navigation }) {
 	<GasketWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -326,7 +312,7 @@ function GhillieWikiScreen({ navigation }) {
 	<GhillieWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -338,7 +324,7 @@ function NuggetWikiScreen({ navigation }) {
 	<NuggetWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -350,7 +336,7 @@ function PatchesWikiScreen({ navigation }) {
 	<PatchesWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -362,7 +348,7 @@ function PicketWikiScreen({ navigation }) {
 	<PicketWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -374,7 +360,7 @@ function StanzaWikiScreen({ navigation }) {
 	<StanzaWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -386,7 +372,7 @@ function TantrumWikiScreen({ navigation }) {
 	<TantrumWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -398,7 +384,7 @@ function TinkWikiScreen({ navigation }) {
 	<TinkWiki />
 	<Space></Space>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
@@ -420,7 +406,7 @@ const App = () => {
                 initialRouteName="Main Menu"
                 screenOptions={{
                     headerTitleAlign: "center",
-                    cardStyle: { backgroundColor: "#61a5c2" }
+		    cardStyle: { backgroundColor: "#61a5c2"}
                 }}
                 >
                 <Stack.Screen

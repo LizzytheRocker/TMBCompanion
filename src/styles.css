@@ -13,6 +13,10 @@ img.resize {
   max-height: 50%;
 }
 
+html, body, body > div, .app {
+  height: 100%;
+}
+
 div.CharInfo {
   padding-left: 2%;
 }
@@ -34,5 +38,9 @@ div.BaddieWiki {
 }
 
 div.TyrantWiki {
+  padding-left: 2%;
+}
+
+div.CharacterWiki {
   padding-left: 2%;
 }
