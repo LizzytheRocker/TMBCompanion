@@ -228,7 +228,7 @@ function CharacterWikiScreen({ navigation }) {
 	    </div>
 	</div>
 
-	<Button onClick={() => navigation.goBack()}>Back</Button>;
+	<Button onClick={() => navigation.goBack()}>Back</Button>
 	<Space></Space>
 	</div>
     );
